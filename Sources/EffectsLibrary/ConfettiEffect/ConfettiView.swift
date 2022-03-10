@@ -18,6 +18,10 @@ public struct ConfettiView: View {
         fallDirection: .downwards
     )
     
+    public init(config: ConfettiConfig) {
+        self.config = config
+    }
+    
     public var body: some View {
         GeometryReader { proxy in
             ConfettiViewRepresentable(proxy: proxy, config: config)
