@@ -18,7 +18,7 @@ public struct ConfettiView: View {
         fallDirection: .downwards
     )
     
-    public init(config: ConfettiConfig) {
+    public init(config: ConfettiConfig = ConfettiConfig()) {
         self.config = config
     }
     

@@ -10,8 +10,8 @@ import SwiftUI
 @available(iOS 14.0, *)
 /// Content is the building blocks of what the effects are constituted of.
 /// These can be configured when creating the effects wi
-enum Content {
-    enum Shape {
+public enum Content {
+    public enum Shape {
         case circle
         case triangle
         case square
