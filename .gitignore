@@ -1,0 +1,22 @@
+### macOS ###
+.DS_Store
+
+### Swift ###
+
+## User settings
+xcuserdata/
+/.build
+
+### SwiftPackageManager ###
+/Packages
+/*.xcodeproj
+DerivedData/
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+
+### Xcode ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
