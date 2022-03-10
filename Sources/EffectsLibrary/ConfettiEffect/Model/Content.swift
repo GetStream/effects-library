@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 14.0, *)
 /// Content is the building blocks of what the effects are constituted of.
 /// These can be configured when creating the effects wi
 public enum Content {
@@ -23,7 +22,6 @@ public enum Content {
     case emoji(Character)
 }
 
-@available(iOS 14.0, *)
 extension Content {
     var color: UIColor? {
         switch self {
@@ -47,7 +45,6 @@ extension Content {
     }
 }
 
-@available(iOS 14.0, *)
 extension Content.Shape {
     func path(in rect: CGRect) -> CGPath {
         switch self {
@@ -79,7 +76,6 @@ extension Content.Shape {
     }
 }
 
-@available(iOS 14.0, *)
 extension String {
     func image(with font: UIFont = UIFont.systemFont(ofSize: 16.0)) -> UIImage {
         let string = NSString(string: "\(self)")

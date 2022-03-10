@@ -7,8 +7,15 @@
 
 import SwiftUI
 
-@available(iOS 14.0, *)
+
 /// The `ConfettiConfig` struct allows you to tailor the `ConfettiView` to your needs with a lot of configuration options.
+///
+/// You can use the default parameters to get a fine-tuned effect with reasonable settings. However you can also go full customization-mode and set each parameter how you like it and experiment with it.
+///
+/// - Parameters:
+///     - content: This is an array of `Content` enum objects. You can see its documentation for how to use/implement those. It offers the following cases: `.image`, `.emoji`,  and `.shape`.
+///     - emitterPosition: Describes the position of the root of the effect. Implemented as an enum with the following options: `.top`, `.center`, and `.bottom`. Default value is `.top`.
+///     - clipsToBounds: specifies whether the effect is constrained to the `ConfettiView` itself or can leak around. Default is `false` (effect leaks outside)
 public struct ConfettiConfig {
     var content: [Content]
     var emitterPosition: EmitterPosition
@@ -25,7 +32,7 @@ public struct ConfettiConfig {
             .emoji("🥳"),
             .emoji("🎁")
         ],
-        emitterPosition: EmitterPosition = .bottom,
+        emitterPosition: EmitterPosition = .top,
         clipsToBounds: Bool = false,
         backgroundColor: Color = .clear,
         birthRate: Float = 25,

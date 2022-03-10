@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 14.0, *)
 public struct ConfettiView: View {
     
     var config = ConfettiConfig(
@@ -29,7 +28,6 @@ public struct ConfettiView: View {
     }
 }
 
-@available(iOS 14.0, *)
 struct ConfettiView_Previews: PreviewProvider {
     static var previews: some View {
         ConfettiView()

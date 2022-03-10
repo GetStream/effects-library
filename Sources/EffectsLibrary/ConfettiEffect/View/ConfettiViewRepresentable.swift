@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-@available(iOS 14.0, *)
 struct ConfettiViewRepresentable: UIViewRepresentable {
     
     var proxy: GeometryProxy
     var config: ConfettiConfig
     
     fileprivate var scale: CGFloat {
-        print("\(proxy.size.width / UIScreen.main.bounds.width)")
         return proxy.size.width / UIScreen.main.bounds.width
     }
     
