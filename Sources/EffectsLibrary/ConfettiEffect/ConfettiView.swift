@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-struct ConfettiView: View {
+public struct ConfettiView: View {
     
     var config = ConfettiConfig(
         emitterPosition: .top,
@@ -18,7 +18,7 @@ struct ConfettiView: View {
         fallDirection: .downwards
     )
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { proxy in
             ConfettiViewRepresentable(proxy: proxy, config: config)
         }
@@ -29,6 +29,5 @@ struct ConfettiView: View {
 struct ConfettiView_Previews: PreviewProvider {
     static var previews: some View {
         ConfettiView()
-//            .frame(width: 300, height: 300)
     }
 }
