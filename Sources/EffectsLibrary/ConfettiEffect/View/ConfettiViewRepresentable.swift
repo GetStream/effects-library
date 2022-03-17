@@ -41,7 +41,7 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
         containerView.clipsToBounds = config.clipsToBounds
         
         let containerLayer = CAEmitterLayer()
-        containerLayer.name = "Partying"
+        containerLayer.name = "Container"
         containerLayer.bounds = CGRect(x: 0, y: 0, width: proxy.size.width, height: proxy.size.height)
         containerLayer.anchorPoint = CGPoint(x: 0, y: 0)
         containerLayer.backgroundColor = UIColor(config.backgroundColor).cgColor

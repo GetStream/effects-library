@@ -16,7 +16,7 @@ import SwiftUI
 ///     - content: This is an array of `Content` enum objects. You can see its documentation for how to use/implement those. It offers the following cases: `.image`, `.emoji`,  and `.shape`.
 ///     - emitterPosition: Describes the position of the root of the effect. Implemented as an enum with the following options: `.top`, `.center`, and `.bottom`. Default value is `.top`.
 ///     - clipsToBounds: specifies whether the effect is constrained to the `ConfettiView` itself or can leak around. Default is `false` (effect leaks outside)
-public struct ConfettiConfig {
+public struct ConfettiConfig: BaseConfig {
     var content: [Content]
     var emitterPosition: EmitterPosition
     var clipsToBounds: Bool
@@ -47,12 +47,4 @@ public struct ConfettiConfig {
         self.lifetime = lifetime
         self.fallDirection = fallDirection
     }
-}
-
-public enum EmitterPosition {
-    case top, center, bottom
-}
-
-public enum FallDirection {
-    case upwards, downwards
 }
