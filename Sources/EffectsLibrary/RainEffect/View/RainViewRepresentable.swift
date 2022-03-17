@@ -1,16 +1,16 @@
 //
-//  SnowViewRepresentable.swift
+//  RainViewRepresentable.swift
 //  
 //
-//  Created by Stefan Blos on 11.03.22.
+//  Created by Stefan Blos on 17.03.22.
 //
 
 import SwiftUI
 
-struct SnowViewRepresentable: UIViewRepresentable {
+struct RainViewRepresentable: UIViewRepresentable {
     
     var proxy: GeometryProxy
-    var config: SnowConfig
+    var config: RainConfig
     
     fileprivate var scale: CGFloat {
         return proxy.size.width / UIScreen.main.bounds.width
@@ -46,6 +46,11 @@ struct SnowViewRepresentable: UIViewRepresentable {
         containerLayer.anchorPoint = CGPoint(x: 0, y: 0)
         containerLayer.backgroundColor = UIColor(config.backgroundColor).cgColor
         containerLayer.emitterPosition = CGPoint(x: proxy.size.width / 2, y: emitterYPosition)
+        containerLayer.renderMode = .additive
+        containerLayer.fillMode = .forwards
+        containerLayer.allowsGroupOpacity = true
+        containerLayer.allowsEdgeAntialiasing = true
+        
         
         // Emitter Cells
         let cells = configure(with: config.content)
@@ -66,16 +71,16 @@ struct SnowViewRepresentable: UIViewRepresentable {
         let cell = CAEmitterCell()
         
         cell.contentsScale = 1 / scale
-        cell.scale = 0.001 / scale
-        cell.scaleRange = 0.2
-        cell.scaleSpeed = 0.03
-        cell.magnificationFilter = CALayerContentsFilter.nearest.rawValue
-        cell.minificationFilter = CALayerContentsFilter.nearest.rawValue
-        cell.spin = 3.4
+        cell.scale = 0.005 / scale
+        cell.scaleRange = 0.02
+        cell.scaleSpeed = -0.005
+        cell.magnificationFilter = CALayerContentsFilter.trilinear.rawValue
+        cell.minificationFilter = CALayerContentsFilter.trilinear.rawValue
+        cell.minificationFilterBias = -25
         cell.spinRange = 0.1
-        cell.velocity = 154
+        cell.velocity = 250
         cell.velocityRange = 8
-        cell.xAcceleration = 0.2
+        cell.xAcceleration = 50
         switch config.fallDirection {
         case .downwards:
             cell.yAcceleration = 200
@@ -106,15 +111,14 @@ struct SnowViewRepresentable: UIViewRepresentable {
     }
 }
 
-
-struct SnowViewRepresentable_Previews: PreviewProvider {
+struct RainViewRepresentable_Previews: PreviewProvider {
     static var previews: some View {
-        SnowView(
+        RainView(
             config:
-                SnowConfig(
+                RainConfig(
                     emitterPosition: .top,
                     clipsToBounds: false,
-                    birthRate: 100,
+                    birthRate: 300,
                     lifetime: 10
                 )
         )

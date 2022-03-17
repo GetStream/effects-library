@@ -1,28 +1,24 @@
 //
-//  SnowConfig.swift
+//  RainConfig.swift
 //  
 //
-//  Created by Stefan Blos on 11.03.22.
+//  Created by Stefan Blos on 17.03.22.
 //
 
 import SwiftUI
 
-struct SnowConfig: BaseConfig {
+struct RainConfig: BaseConfig {
     var content: [Content]
     var emitterPosition: EmitterPosition
     var clipsToBounds: Bool
     var backgroundColor: Color = .clear
-    var birthRate: Float = 25
+    var birthRate: Float = 200
     var lifetime: Float = 10
     var fallDirection: FallDirection = .upwards
     
     public init(
         content: [Content] = [
-            .image(UIImage.loadFromBundle(named: "snow"), .blue),
-            .emoji("❄️"),
-            .emoji("❆"),
-            .emoji("❄"),
-            .emoji("❅")
+            .image(UIImage.loadFromBundle(named: "raindrop"), .blue)
         ],
         emitterPosition: EmitterPosition = .top,
         clipsToBounds: Bool = false,
@@ -39,4 +35,5 @@ struct SnowConfig: BaseConfig {
         self.lifetime = lifetime
         self.fallDirection = fallDirection
     }
+
 }
