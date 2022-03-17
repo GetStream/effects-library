@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Content is the building blocks of what the effects are constituted of.
-/// These can be configured when creating the effects wi
+/// These can be configured when creating the effects.
 public enum Content {
     public enum Shape {
         case circle

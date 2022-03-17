@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RainView: View {
+public struct RainView: View {
     
     var config = RainConfig(
         emitterPosition: .top,
@@ -17,7 +17,7 @@ struct RainView: View {
         fallDirection: .downwards
     )
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { proxy in
             RainViewRepresentable(proxy: proxy, config: config)
         }

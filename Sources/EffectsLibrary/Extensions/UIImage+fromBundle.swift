@@ -9,7 +9,7 @@ import UIKit
 
 extension UIImage {
     
-    static func loadFromBundle(named name: String) -> UIImage {
+    public static func loadFromBundle(named name: String) -> UIImage {
         return UIImage(named: name, in: Bundle.module, with: .none)!.withRenderingMode(.alwaysTemplate)
     }
     

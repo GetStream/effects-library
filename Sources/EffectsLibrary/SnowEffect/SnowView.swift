@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SnowView: View {
+public struct SnowView: View {
     
     var config = SnowConfig(
         emitterPosition: .top,
@@ -16,7 +16,8 @@ struct SnowView: View {
         lifetime: 8,
         fallDirection: .downwards
     )
-    var body: some View {
+    
+    public var body: some View {
         GeometryReader { proxy in
             SnowViewRepresentable(proxy: proxy, config: config)
         }
