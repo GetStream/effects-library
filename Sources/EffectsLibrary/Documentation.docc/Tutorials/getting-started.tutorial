@@ -1,0 +1,112 @@
+@Tutorial(time: 20) {
+    @Intro(title: "What is this about?") {
+        In this getting started tutorial we will go through integrating the *Effects Library* into your own project. We will go over the process from scratch and cover everything step by step so that you can follow along.
+        
+        There is no prerequisite other than Xcode (which involves having a Mac in some form, of course). Grab yourself your favorite drink (coffee, for me) and get ready to see how easy it is to bring amazing effects into your app with very little effort.
+        
+        @Image(source: "intro", alt: "Example of the confetti effect inside a view falling down.")
+    }
+    
+    @Section(title: "Integrating the library into a new project") {
+        @ContentAndMedia {
+            First, we will create a new Xcode project and then we will integrate the *Effects Library* by using the Swift Package Manager.
+            
+            I hope you are ready, just in case: here is an image of a Capybara. 
+            
+            Does that have anything to do with the tutorial? No.
+            
+            Is it worth including because they are majestic and insanely cute animals? Yes.
+            
+            ![An image of a majestic and wonderful Capybara walking by a lake.](capybara.jpg)
+            
+            Photo by <a href="https://unsplash.com/@tioni?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tioni Oliv</a> on <a href="https://unsplash.com/s/photos/capybara?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        }
+            
+        @Steps {
+            @Step {
+                Create a new Xcode project (**File** -> **New** -> **Project**) with the **App** template for iOS selected.
+                
+                (For now only iOS is supported, but let us know if there's interest in also adding support for other platforms.)
+                
+                @Image(source: "create-new-project", alt: "Creating a new project in Xcode.")
+            }
+            
+            @Step {
+                Name the project anything you like. Only make sure that **Swift** and **SwiftUI** are selected. You can save the project anywhere you like on your machine, it doesn't matter.
+                
+                @Image(source: "name-new-project", alt: "Naming the new project in Xcode.")
+            }
+            
+            @Step {
+                Next, we will add the library to our project. Select the project file and go to **Package Dependencies** and click the plus icon (marked with the red circle).
+                
+                @Image(source: "add-new-package", alt: "Clicking the plus icon will take you to the window for adding a new package.")
+            }
+            
+            @Step {
+                In the text field at the top right (see red rectangle) we need to paste the link to the Github repo of the **Effects Library**. You can either [https://github.com/DaemonLoki/effects-library](go there and copy it) or just select it and copy it directly here:
+                
+                https://github.com/DaemonLoki/effects-library
+                
+                @Image(source: "add-link-to-package", alt: "Pasting the link into the text field.")
+            }
+            
+            @Step {
+                For the **Dependency rule** (see red rectangle) we can select **Branch** and use the `main` branch. This will get you the latest version of the package. Once we will switch to Releases it makes sense to go with the latest stable release.
+                
+                Click **Add Package** now. 
+                
+                @Image(source: "package-dependency-rule", alt: "Selecting the correct dependeny rule.")
+            }
+            
+            @Step {
+                Make sure the library is selected in the next window (see red rectangle). Hit **Add Package** again.
+                
+                @Image(source: "package-selected", alt: "Making sure we selected the library.")
+            }
+            
+            @Step {
+                We're all set. Xcode will load the package und do some work. After that your project should look similar to this.
+                
+                @Image(source: "finished-setup", alt: "Setup of package is finished.")
+            }
+        }
+    }
+    
+    @Section(title: "Creating a View with an Effect") {
+        @ContentAndMedia {
+            Now that we prepared our project to have the library available we can start with adding a `View` into our app. This is where the fun starts, so let's go!
+        }
+            
+        @Steps {
+            @Step {
+                Open up the `ContentView` of your project.
+                
+                @Code(name: "ContentView.swift", file: 01-getting-started-02-01.swift)
+            }
+            
+            @Step {
+                Add the import to the `EffectsLibrary` at the top.
+                
+                @Code(name: "ContentView.swift", file: 01-getting-started-02-02.swift)
+            }
+            
+            @Step {
+                Replace the `Text` View that is the by default with one of our Effects, in our case `ConfettiView`.
+                
+                @Code(name: "ContentView.swift", file: 01-getting-started-02-03.swift)
+            }
+            
+            @Step {
+                You can already see in the preview window how the ConfettiView will look. If you hit the play button you can directly see the view in Action, which is pretty cool to see during development without the need to run the app on device.
+                
+                @Code(name: "ContentView.swift", file: 01-getting-started-02-03.swift) {
+                    @Image(source: "01-getting-started-02-03-preview", alt: "Preview of the ConfettiView")
+                }
+            }
+            
+        }
+    }
+}
+    
+    

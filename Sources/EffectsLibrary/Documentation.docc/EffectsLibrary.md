@@ -8,9 +8,10 @@ Text for the overview.
 
 ## Topics
 
-### Configuration options
+### Essentials
 
-- <doc:Basic-configuration-options>
+- <doc:basic-configuration-options>
+- <doc:/tutorials/tutorial-table>
 
 ### Views
 
