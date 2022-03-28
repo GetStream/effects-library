@@ -5,7 +5,7 @@
 //  Created by Stefan Blos on 17.03.22.
 //
 
-import UIKit
+import SwiftUI
 
 extension UIImage {
     
