@@ -73,7 +73,7 @@
         }
     }
     
-    @Section(title: "Creating a View with an Effect") {
+    @Section(title: "Creating a simple View with an effect") {
         @ContentAndMedia {
             Now that we prepared our project to have the library available we can start with adding a `View` into our app. This is where the fun starts, so let's go!
         }
@@ -98,15 +98,31 @@
             }
             
             @Step {
-                You can already see in the preview window how the ConfettiView will look. If you hit the play button you can directly see the view in Action, which is pretty cool to see during development without the need to run the app on device.
+                You can already see in the preview window how the ConfettiView will look. 
                 
                 @Code(name: "ContentView.swift", file: 01-getting-started-02-03.swift) {
                     @Image(source: "01-getting-started-02-03-preview", alt: "Preview of the ConfettiView")
                 }
             }
             
+            @Step {
+                If you hit the play button you can directly see the view in Action, which is pretty cool to see during development without the need to run the app on device.
+                
+                @Code(name: "ContentView.swift", file: 01-getting-started-02-03.swift) {
+                    @Image(source: "01-getting-started-02-03-preview-gif", alt: "Preview of the ConfettiView in action.")
+                }
+            }
         }
     }
+        
+    @Section(title: "Basic customization options for the effects view") {
+        @ContentAndMedia {
+            That has been a very easy and quick setup. We wanted to make it as easy as possible to get started. But, of course, there's a lot of customization options you can add to your views as well.
+        }
+        
+        @Steps {
+            
+        }
 }
     
     
