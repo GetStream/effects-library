@@ -26,7 +26,7 @@ public struct SnowConfig: BaseConfig {
     var clipsToBounds: Bool
     var backgroundColor: Color
     var intensity: Intensity
-    var lifetime: Float
+    var lifetime: Lifetime
     var fallDirection: FallDirection
     
     public init(
@@ -41,7 +41,7 @@ public struct SnowConfig: BaseConfig {
         clipsToBounds: Bool = false,
         backgroundColor: Color = .clear,
         intensity: Intensity = .medium,
-        lifetime: Float = 10,
+        lifetime: Lifetime = .medium,
         fallDirection: FallDirection = .downwards
     ) {
         self.content = content

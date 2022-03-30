@@ -38,6 +38,17 @@ struct SnowViewRepresentable: UIViewRepresentable {
         }
     }
     
+    fileprivate var lifetime: Float {
+        switch config.lifetime {
+        case .short:
+            return 4
+        case .medium:
+            return 10
+        case .long:
+            return 20
+        }
+    }
+    
     func makeUIView(context: Context) -> some UIView {
         return createView()
     }
@@ -96,7 +107,7 @@ struct SnowViewRepresentable: UIViewRepresentable {
         cell.zAcceleration = 50
         cell.emissionRange = 6.284
         cell.birthRate = birthRate
-        cell.lifetime = config.lifetime
+        cell.lifetime = lifetime
         cell.lifetimeRange = 4
         cell.redRange = 0.3
         cell.redSpeed = 0.5

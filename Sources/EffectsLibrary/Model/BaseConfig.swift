@@ -8,9 +8,10 @@
 import SwiftUI
 
 protocol BaseConfig {
-    var content: [Content] { get set }
-    var emitterPosition: EmitterPosition { get set}
-    var clipsToBounds: Bool { get set}
-    var backgroundColor: Color { get set }
+    var content: [Content] { get }
+    var emitterPosition: EmitterPosition { get }
+    var clipsToBounds: Bool { get }
+    var backgroundColor: Color { get }
     var intensity: Intensity { get }
+    var lifetime: Lifetime { get }
 }

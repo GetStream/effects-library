@@ -13,7 +13,7 @@ public struct ConfettiView: View {
         emitterPosition: .top,
         clipsToBounds: false,
         intensity: .low,
-        lifetime: 8,
+        lifetime: .medium,
         fallDirection: .downwards
     )
     

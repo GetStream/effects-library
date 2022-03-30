@@ -13,7 +13,7 @@ public struct RainView: View {
         emitterPosition: .top,
         clipsToBounds: false,
         intensity: .medium,
-        lifetime: 10,
+        lifetime: .medium,
         fallDirection: .downwards
     )
     

@@ -27,7 +27,7 @@ public struct ConfettiConfig: BaseConfig {
     var clipsToBounds: Bool
     var backgroundColor: Color
     var intensity: Intensity
-    var lifetime: Float
+    var lifetime: Lifetime
     
     // custom parameters
     var fallDirection: FallDirection
@@ -43,7 +43,7 @@ public struct ConfettiConfig: BaseConfig {
         clipsToBounds: Bool = false,
         backgroundColor: Color = .clear,
         intensity: Intensity = .medium,
-        lifetime: Float = 10,
+        lifetime: Lifetime = .medium,
         fallDirection: FallDirection = .downwards
     ) {
         self.content = content

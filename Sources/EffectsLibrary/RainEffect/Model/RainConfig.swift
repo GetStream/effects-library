@@ -18,7 +18,7 @@ import SwiftUI
 ///     - clipsToBounds: specifies whether the effect is constrained to the ``RainView`` itself or can leak around. Default is `false` (effect leaks outside).
 ///     - backgroundColor: the background color of the view that contains the effect. Default is `.clear`.
 ///     - birthRate: a `Float` that defines how much particles of the effect are emitted. The higher the value, the more intense the effect will be. The lower the value the fewer particles are emitted. Default value is `200`.
-///     - lifetime:a `Float`  that specifies how long particles remain on screen after they are emitted. The lower the value the shorter time each particle is alive. Higher values keep content on the screen for longer. Does not have an effect on the speed or direction items behave on the screen. Default value is `10`.
+///     - lifetime:a ``Lifetime``  that specifies how long particles remain on screen after they are emitted. The lower the value the shorter time each particle is alive. Higher values keep content on the screen for longer. Does not have an effect on the speed or direction items behave on the screen. Default value is `.medium`.
 ///     - fallDirection: an enum value of type ``FallDirection``. There are two options for now, being `.upwards` (particles are moving up the screen from the source they are emitted) and `.downwards` (particles are falling downwards from the origin of the source). Default is `.downwards`.
 public struct RainConfig: BaseConfig {
     var content: [Content]
@@ -26,7 +26,7 @@ public struct RainConfig: BaseConfig {
     var clipsToBounds: Bool
     var backgroundColor: Color
     var intensity: Intensity
-    var lifetime: Float
+    var lifetime: Lifetime
     var fallDirection: FallDirection
     
     public init(
@@ -37,7 +37,7 @@ public struct RainConfig: BaseConfig {
         clipsToBounds: Bool = false,
         backgroundColor: Color = .clear,
         intensity: Intensity = .medium,
-        lifetime: Float = 10,
+        lifetime: Lifetime = .medium,
         fallDirection: FallDirection = .downwards
     ) {
         self.content = content

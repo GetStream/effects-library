@@ -12,7 +12,7 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
     var proxy: GeometryProxy
     var config: ConfettiConfig
     
-    var birthRate: Float {
+    fileprivate var birthRate: Float {
         switch config.intensity {
         case .low:
             return 8
@@ -20,6 +20,17 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
             return 25
         case .high:
             return 50
+        }
+    }
+    
+    fileprivate var lifetime: Float {
+        switch config.lifetime {
+        case .short:
+            return 4
+        case .medium:
+            return 10
+        case .long:
+            return 20
         }
     }
     
@@ -93,7 +104,7 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
         cell.zAcceleration = -50
         cell.emissionRange = 6.284
         cell.birthRate = birthRate
-        cell.lifetime = config.lifetime
+        cell.lifetime = lifetime
         cell.lifetimeRange = 4
         cell.fillMode = .forwards
         cell.contents = content.image.cgImage
