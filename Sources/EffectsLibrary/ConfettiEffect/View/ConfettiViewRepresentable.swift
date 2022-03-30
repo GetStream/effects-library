@@ -12,6 +12,17 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
     var proxy: GeometryProxy
     var config: ConfettiConfig
     
+    var birthRate: Float {
+        switch config.intensity {
+        case .low:
+            return 8
+        case .medium:
+            return 25
+        case .high:
+            return 50
+        }
+    }
+    
     fileprivate var scale: CGFloat {
         return proxy.size.width / UIScreen.main.bounds.width
     }
@@ -49,7 +60,7 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
         
         // Emitter Cells
         let cells = configure(with: config.content)
-       
+        
         containerLayer.emitterCells = cells
         containerView.layer.addSublayer(containerLayer)
         
@@ -81,7 +92,7 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
         }
         cell.zAcceleration = -50
         cell.emissionRange = 6.284
-        cell.birthRate = config.birthRate
+        cell.birthRate = birthRate
         cell.lifetime = config.lifetime
         cell.lifetimeRange = 4
         cell.fillMode = .forwards

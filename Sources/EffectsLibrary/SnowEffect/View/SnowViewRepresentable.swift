@@ -27,6 +27,17 @@ struct SnowViewRepresentable: UIViewRepresentable {
         }
     }
     
+    fileprivate var birthRate: Float {
+        switch config.intensity {
+        case .low:
+            return 10
+        case .medium:
+            return 25
+        case .high:
+            return 50
+        }
+    }
+    
     func makeUIView(context: Context) -> some UIView {
         return createView()
     }
@@ -84,7 +95,7 @@ struct SnowViewRepresentable: UIViewRepresentable {
         }
         cell.zAcceleration = 50
         cell.emissionRange = 6.284
-        cell.birthRate = config.birthRate
+        cell.birthRate = birthRate
         cell.lifetime = config.lifetime
         cell.lifetimeRange = 4
         cell.redRange = 0.3
@@ -105,19 +116,3 @@ struct SnowViewRepresentable: UIViewRepresentable {
         return cell
     }
 }
-
-
-struct SnowViewRepresentable_Previews: PreviewProvider {
-    static var previews: some View {
-        SnowView(
-            config:
-                SnowConfig(
-                    emitterPosition: .top,
-                    clipsToBounds: false,
-                    birthRate: 100,
-                    lifetime: 10
-                )
-        )
-    }
-}
-

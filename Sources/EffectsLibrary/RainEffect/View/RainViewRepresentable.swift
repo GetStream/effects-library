@@ -27,6 +27,17 @@ struct RainViewRepresentable: UIViewRepresentable {
         }
     }
     
+    fileprivate var birthRate: Float {
+        switch config.intensity {
+        case .low:
+            return 50
+        case .medium:
+            return 200
+        case .high:
+            return 400
+        }
+    }
+    
     func makeUIView(context: Context) -> some UIView {
         return createView()
     }
@@ -89,7 +100,7 @@ struct RainViewRepresentable: UIViewRepresentable {
         }
         cell.zAcceleration = 50
         cell.emissionRange = 6.284
-        cell.birthRate = config.birthRate
+        cell.birthRate = birthRate
         cell.lifetime = config.lifetime
         cell.lifetimeRange = 4
         cell.redRange = 0.3
@@ -110,18 +121,3 @@ struct RainViewRepresentable: UIViewRepresentable {
         return cell
     }
 }
-
-struct RainViewRepresentable_Previews: PreviewProvider {
-    static var previews: some View {
-        RainView(
-            config:
-                RainConfig(
-                    emitterPosition: .top,
-                    clipsToBounds: false,
-                    birthRate: 300,
-                    lifetime: 10
-                )
-        )
-    }
-}
-

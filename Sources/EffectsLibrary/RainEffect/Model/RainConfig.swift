@@ -25,7 +25,7 @@ public struct RainConfig: BaseConfig {
     var emitterPosition: EmitterPosition
     var clipsToBounds: Bool
     var backgroundColor: Color
-    var birthRate: Float
+    var intensity: Intensity
     var lifetime: Float
     var fallDirection: FallDirection
     
@@ -36,7 +36,7 @@ public struct RainConfig: BaseConfig {
         emitterPosition: EmitterPosition = .top,
         clipsToBounds: Bool = false,
         backgroundColor: Color = .clear,
-        birthRate: Float = 200,
+        intensity: Intensity = .medium,
         lifetime: Float = 10,
         fallDirection: FallDirection = .downwards
     ) {
@@ -44,7 +44,7 @@ public struct RainConfig: BaseConfig {
         self.emitterPosition = emitterPosition
         self.clipsToBounds = clipsToBounds
         self.backgroundColor = backgroundColor
-        self.birthRate = birthRate
+        self.intensity = intensity
         self.lifetime = lifetime
         self.fallDirection = fallDirection
     }

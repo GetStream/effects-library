@@ -12,4 +12,5 @@ protocol BaseConfig {
     var emitterPosition: EmitterPosition { get set}
     var clipsToBounds: Bool { get set}
     var backgroundColor: Color { get set }
+    var intensity: Intensity { get }
 }
