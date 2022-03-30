@@ -34,6 +34,17 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
         }
     }
     
+    fileprivate var velocity: CGFloat {
+        switch config.speed {
+        case .slow:
+            return 10
+        case .medium:
+            return 100
+        case .fast:
+            return 200
+        }
+    }
+    
     fileprivate var scale: CGFloat {
         return proxy.size.width / UIScreen.main.bounds.width
     }
@@ -92,7 +103,7 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
         cell.scaleRange = 0.2
         cell.scaleSpeed = 0.03
         cell.spinRange = 0.1
-        cell.velocity = 100
+        cell.velocity = velocity
         cell.velocityRange = 8
         cell.xAcceleration = -0.2
         switch config.fallDirection {

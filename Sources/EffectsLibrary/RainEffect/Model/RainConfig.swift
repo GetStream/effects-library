@@ -21,12 +21,16 @@ import SwiftUI
 ///     - lifetime:a ``Lifetime``  that specifies how long particles remain on screen after they are emitted. The lower the value the shorter time each particle is alive. Higher values keep content on the screen for longer. Does not have an effect on the speed or direction items behave on the screen. Default value is `.medium`.
 ///     - fallDirection: an enum value of type ``FallDirection``. There are two options for now, being `.upwards` (particles are moving up the screen from the source they are emitted) and `.downwards` (particles are falling downwards from the origin of the source). Default is `.downwards`.
 public struct RainConfig: BaseConfig {
+    // base parameters
     var content: [Content]
     var emitterPosition: EmitterPosition
     var clipsToBounds: Bool
     var backgroundColor: Color
     var intensity: Intensity
     var lifetime: Lifetime
+    var speed: Speed
+    
+    // custom parameters
     var fallDirection: FallDirection
     
     public init(
@@ -38,14 +42,19 @@ public struct RainConfig: BaseConfig {
         backgroundColor: Color = .clear,
         intensity: Intensity = .medium,
         lifetime: Lifetime = .medium,
+        speed: Speed = .medium,
         fallDirection: FallDirection = .downwards
     ) {
+        // base parameters
         self.content = content
         self.emitterPosition = emitterPosition
         self.clipsToBounds = clipsToBounds
         self.backgroundColor = backgroundColor
         self.intensity = intensity
         self.lifetime = lifetime
+        self.speed = speed
+        
+        // custom parameters
         self.fallDirection = fallDirection
     }
 

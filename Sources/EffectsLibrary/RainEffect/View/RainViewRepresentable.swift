@@ -49,6 +49,17 @@ struct RainViewRepresentable: UIViewRepresentable {
         }
     }
     
+    fileprivate var velocity: CGFloat {
+        switch config.speed {
+        case .slow:
+            return 50
+        case .medium:
+            return 250
+        case .fast:
+            return 400
+        }
+    }
+    
     func makeUIView(context: Context) -> some UIView {
         return createView()
     }
@@ -100,7 +111,7 @@ struct RainViewRepresentable: UIViewRepresentable {
         cell.minificationFilter = CALayerContentsFilter.trilinear.rawValue
         cell.minificationFilterBias = -25
         cell.spinRange = 0.1
-        cell.velocity = 250
+        cell.velocity = velocity
         cell.velocityRange = 8
         cell.xAcceleration = 50
         switch config.fallDirection {

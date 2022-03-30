@@ -14,6 +14,7 @@ public struct RainView: View {
         clipsToBounds: false,
         intensity: .medium,
         lifetime: .medium,
+        speed: .medium,
         fallDirection: .downwards
     )
     

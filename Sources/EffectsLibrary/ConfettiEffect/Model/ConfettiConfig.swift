@@ -28,6 +28,7 @@ public struct ConfettiConfig: BaseConfig {
     var backgroundColor: Color
     var intensity: Intensity
     var lifetime: Lifetime
+    var speed: Speed
     
     // custom parameters
     var fallDirection: FallDirection
@@ -44,14 +45,19 @@ public struct ConfettiConfig: BaseConfig {
         backgroundColor: Color = .clear,
         intensity: Intensity = .medium,
         lifetime: Lifetime = .medium,
+        speed: Speed = .medium,
         fallDirection: FallDirection = .downwards
     ) {
+        // base parameters
         self.content = content
         self.emitterPosition = emitterPosition
         self.clipsToBounds = clipsToBounds
         self.backgroundColor = backgroundColor
         self.intensity = intensity
         self.lifetime = lifetime
+        self.speed = speed
+        
+        // custom parameters
         self.fallDirection = fallDirection
     }
 }

@@ -49,6 +49,17 @@ struct SnowViewRepresentable: UIViewRepresentable {
         }
     }
     
+    fileprivate var velocity: CGFloat {
+        switch config.speed {
+        case .slow:
+            return 50
+        case .medium:
+            return 154
+        case .fast:
+            return 300
+        }
+    }
+    
     func makeUIView(context: Context) -> some UIView {
         return createView()
     }
@@ -95,7 +106,7 @@ struct SnowViewRepresentable: UIViewRepresentable {
         cell.minificationFilter = CALayerContentsFilter.nearest.rawValue
         cell.spin = 3.4
         cell.spinRange = 0.1
-        cell.velocity = 154
+        cell.velocity = velocity
         cell.velocityRange = 8
         cell.xAcceleration = 0.2
         switch config.fallDirection {

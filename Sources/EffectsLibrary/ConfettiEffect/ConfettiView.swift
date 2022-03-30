@@ -14,6 +14,7 @@ public struct ConfettiView: View {
         clipsToBounds: false,
         intensity: .low,
         lifetime: .medium,
+        speed: .medium,
         fallDirection: .downwards
     )
     

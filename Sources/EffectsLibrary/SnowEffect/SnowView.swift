@@ -14,6 +14,7 @@ public struct SnowView: View {
         clipsToBounds: false,
         intensity: .high,
         lifetime: .medium,
+        speed: .medium,
         fallDirection: .downwards
     )
     
