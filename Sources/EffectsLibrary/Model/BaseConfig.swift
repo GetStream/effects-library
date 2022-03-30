@@ -15,4 +15,5 @@ protocol BaseConfig {
     var intensity: Intensity { get }
     var lifetime: Lifetime { get }
     var speed: Speed { get }
+    var fadeOut: FadeOut { get }
 }

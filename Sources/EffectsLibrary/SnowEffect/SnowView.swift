@@ -12,9 +12,9 @@ public struct SnowView: View {
     var config = SnowConfig(
         emitterPosition: .top,
         clipsToBounds: false,
-        intensity: .high,
-        lifetime: .medium,
-        speed: .medium,
+        intensity: .low,
+        lifetime: .short,
+        speed: .slow,
         fallDirection: .downwards
     )
     

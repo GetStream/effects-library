@@ -45,6 +45,19 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
         }
     }
     
+    fileprivate var alphaSpeed: Float {
+        switch config.fadeOut {
+        case .none:
+            return 0
+        case .slow:
+            return 4
+        case .medium:
+            return 2
+        case .fast:
+            return 0.5
+        }
+    }
+    
     fileprivate var scale: CGFloat {
         return proxy.size.width / UIScreen.main.bounds.width
     }
@@ -118,6 +131,8 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
         cell.lifetime = lifetime
         cell.lifetimeRange = 4
         cell.fillMode = .forwards
+        cell.alphaRange = 0.5
+        cell.alphaSpeed = alphaSpeed
         cell.contents = content.image.cgImage
         if let color = content.color {
             cell.color = color.cgColor

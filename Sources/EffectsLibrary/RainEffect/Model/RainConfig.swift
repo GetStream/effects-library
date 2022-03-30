@@ -29,6 +29,7 @@ public struct RainConfig: BaseConfig {
     var intensity: Intensity
     var lifetime: Lifetime
     var speed: Speed
+    var fadeOut: FadeOut
     
     // custom parameters
     var fallDirection: FallDirection
@@ -43,6 +44,7 @@ public struct RainConfig: BaseConfig {
         intensity: Intensity = .medium,
         lifetime: Lifetime = .medium,
         speed: Speed = .medium,
+        fadeOut: FadeOut = .none,
         fallDirection: FallDirection = .downwards
     ) {
         // base parameters
@@ -53,6 +55,7 @@ public struct RainConfig: BaseConfig {
         self.intensity = intensity
         self.lifetime = lifetime
         self.speed = speed
+        self.fadeOut = fadeOut
         
         // custom parameters
         self.fallDirection = fallDirection

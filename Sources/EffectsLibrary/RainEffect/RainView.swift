@@ -15,6 +15,7 @@ public struct RainView: View {
         intensity: .medium,
         lifetime: .medium,
         speed: .medium,
+        fadeOut: .fast,
         fallDirection: .downwards
     )
     

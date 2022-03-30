@@ -15,6 +15,7 @@ public struct ConfettiView: View {
         intensity: .low,
         lifetime: .medium,
         speed: .medium,
+        fadeOut: .fast,
         fallDirection: .downwards
     )
     

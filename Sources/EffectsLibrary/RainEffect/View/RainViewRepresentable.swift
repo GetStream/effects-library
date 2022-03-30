@@ -60,6 +60,19 @@ struct RainViewRepresentable: UIViewRepresentable {
         }
     }
     
+    fileprivate var alphaSpeed: Float {
+        switch config.fadeOut {
+        case .none:
+            return 0
+        case .slow:
+            return 4
+        case .medium:
+            return 2
+        case .fast:
+            return 0.5
+        }
+    }
+    
     func makeUIView(context: Context) -> some UIView {
         return createView()
     }
@@ -132,7 +145,7 @@ struct RainViewRepresentable: UIViewRepresentable {
         cell.blueRange = 0.3
         cell.blueSpeed = 0.5
         cell.alphaRange = 0.9
-        cell.alphaSpeed = 0.5
+        cell.alphaSpeed = alphaSpeed
         cell.fillMode = .forwards
         
         cell.contents = content.image.cgImage
