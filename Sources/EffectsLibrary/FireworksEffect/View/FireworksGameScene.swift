@@ -14,6 +14,10 @@ class GameScene: SKScene {
     init(size: CGSize, config: FireworksConfig) {
         self.config = config
         super.init(size: size)
+        
+        backgroundColor = UIColor(config.backgroundColor)
+        self.view?.allowsTransparency = true
+        self.view?.backgroundColor = UIColor(config.backgroundColor)
     }
     
     required init?(coder aDecoder: NSCoder) {
