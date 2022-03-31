@@ -18,6 +18,6 @@ struct FireworksConfig: BaseConfig {
     var lifetime: Lifetime = .medium
     var speed: Speed = .medium
     var fadeOut: FadeOut = .medium
-    var spreadRadius: SpreadRadius = .medium
+    var spreadRadius: SpreadRadius = .high
 }
 

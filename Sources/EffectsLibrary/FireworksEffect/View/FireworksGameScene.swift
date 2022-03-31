@@ -11,17 +11,6 @@ class GameScene: SKScene {
     
     var config: FireworksConfig
     
-    var timeInterval: Double {
-        switch config.intensity {
-        case .low:
-            return 1.5
-        case .medium:
-            return 0.5
-        case .high:
-            return 0.1
-        }
-    }
-    
     init(size: CGSize, config: FireworksConfig) {
         self.config = config
         super.init(size: size)
@@ -32,34 +21,43 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(
+            timeInterval: TimeInterval(config.birthRateValue),
+            target: self,
+            selector: #selector(launchFireworks),
+            userInfo: nil,
+            repeats: true
+        )
     }
     
     func explosion(at point: CGPoint) {
         let node = SKEmitterNode()
-        node.particleTexture = SKTexture(image: UIImage.loadFromBundle(named: "spark"))
+//        node.particleTexture = SKTexture(image: UIImage.loadFromBundle(named: "spark"))
+        guard let content = config.content.randomElement() else { return }
+        
+        node.particleTexture = SKTexture(image: content.image)
         
         // Particle General
         node.particleBirthRate = 2048
         node.numParticlesToEmit = 256
-        node.particleLifetime = 0.5
+        node.particleLifetime = CGFloat(config.lifetimeValue)
         node.yAcceleration = -500
         
         // Particle Speed
-        node.particleSpeed = 200
+        node.particleSpeed = config.velocityValue
         node.particleSpeedRange = 200
         
         // Particle Angle
-        node.emissionAngle = .pi * 2
-        node.emissionAngleRange = .pi * 2
+        node.emissionAngle = config.spreadRadiusValue
+        node.emissionAngleRange = config.spreadRadiusValue
         
         // Particle Alpha
         node.particleAlpha = 0.8
-        node.particleAlphaSpeed = -1.4
+        node.particleAlphaSpeed = CGFloat(config.alphaSpeedValue)
         node.particleAlphaRange = 0.2
         
         // Particle Scale
-        node.particleScale = 0.15
+        node.particleScale = 0.15 * content.scale
         
         // Particle Color
         node.particleColor = UIColor(red: 171 / 255.0, green: 80 / 255.0, blue: 21 / 255.0, alpha: 1.0)
