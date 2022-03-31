@@ -37,7 +37,7 @@ public struct SnowConfig: BaseConfig {
     
     public init(
         content: [Content] = [
-            .image(UIImage.loadFromBundle(named: "snow"), .white),
+            .image(UIImage.loadFromBundle(named: .snow), .white),
 //            .emoji("❄️", 0.8),
 //            .emoji("❆"),
 //            .emoji("❄"),
