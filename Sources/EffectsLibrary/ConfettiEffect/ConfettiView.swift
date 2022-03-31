@@ -12,9 +12,9 @@ public struct ConfettiView: View {
     var config: ConfettiConfig = ConfettiConfig(
         emitterPosition: .top,
         clipsToBounds: false,
-        intensity: .low,
+        intensity: .high,
         lifetime: .medium,
-        speed: .medium,
+        speed: .fast,
         fadeOut: .fast,
         spreadRadius: .medium,
         fallDirection: .downwards

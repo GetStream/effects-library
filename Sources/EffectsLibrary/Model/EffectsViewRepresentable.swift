@@ -16,6 +16,7 @@ protocol EffectsViewRepresentable: UIViewRepresentable {
     
     var emitterPositionY: CGFloat { get }
     var scale: CGFloat { get }
+    var viewRenderMode: CAEmitterLayerRenderMode { get }
     
     func createView() -> UIView
     func createBaseView() -> UIView
@@ -45,12 +46,21 @@ extension EffectsViewRepresentable {
             return proxy.size.height / 2
         case .bottom:
             return proxy.size.height
-        }   
+        }
     }
     
     var scale: CGFloat {
         return proxy.size.width / UIScreen.main.bounds.width
     }
+    
+    var viewRenderMode: CAEmitterLayerRenderMode {
+        return .additive
+    }
+}
+
+extension EffectsViewRepresentable {
+    
+    
     
     func createView() -> UIView {
         let baseView = createBaseView()
@@ -82,7 +92,7 @@ extension EffectsViewRepresentable {
         containerLayer.backgroundColor = UIColor(config.backgroundColor).cgColor
         containerLayer.emitterPosition = CGPoint(x: proxy.size.width / 2, y: emitterPositionY)
         containerLayer.fillMode = .forwards
-        containerLayer.renderMode = .additive
+        containerLayer.renderMode = viewRenderMode
         
         return containerLayer
     }

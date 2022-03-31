@@ -12,6 +12,10 @@ struct ConfettiViewRepresentable: EffectsViewRepresentable {
     var proxy: GeometryProxy
     var config: ConfettiConfig
     
+    var viewRenderMode: CAEmitterLayerRenderMode {
+        return .unordered
+    }
+    
     func createCell(with content: Content) -> CAEmitterCell {
         let cell = CAEmitterCell()
         

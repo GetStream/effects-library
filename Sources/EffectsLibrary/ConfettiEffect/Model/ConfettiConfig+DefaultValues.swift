@@ -11,11 +11,11 @@ extension ConfettiConfig {
     var birthRateValue: Float {
         switch intensity {
         case .low:
-            return 8
+            return 5
         case .medium:
-            return 25
+            return 15
         case .high:
-            return 50
+            return 30
         }
     }
     
