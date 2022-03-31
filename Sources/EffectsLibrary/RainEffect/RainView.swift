@@ -12,7 +12,7 @@ public struct RainView: View {
     var config = RainConfig(
         emitterPosition: .top,
         clipsToBounds: false,
-        intensity: .low,
+        intensity: .high,
         lifetime: .medium,
         speed: .medium,
         fadeOut: .fast,

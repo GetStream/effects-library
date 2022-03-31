@@ -37,7 +37,7 @@ public struct RainConfig: BaseConfig {
     
     public init(
         content: [Content] = [
-            .image(UIImage.loadFromBundle(named: "raindrop"), .blue, 0.01)
+            .image(UIImage.loadFromBundle(named: "raindrop"), nil, 0.007)
         ],
         emitterPosition: EmitterPosition = .top,
         clipsToBounds: Bool = false,
