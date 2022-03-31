@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  ConfettiViewRepresentable.swift
 //  
 //
 //  Created by Stefan Blos on 10.03.22.
@@ -12,63 +12,6 @@ struct ConfettiViewRepresentable: EffectsViewRepresentable {
     var proxy: GeometryProxy
     var config: ConfettiConfig
     
-    fileprivate var birthRate: Float {
-        switch config.intensity {
-        case .low:
-            return 8
-        case .medium:
-            return 25
-        case .high:
-            return 50
-        }
-    }
-    
-    fileprivate var lifetime: Float {
-        switch config.lifetime {
-        case .short:
-            return 4
-        case .medium:
-            return 10
-        case .long:
-            return 20
-        }
-    }
-    
-    fileprivate var velocity: CGFloat {
-        switch config.speed {
-        case .slow:
-            return 10
-        case .medium:
-            return 100
-        case .fast:
-            return 200
-        }
-    }
-    
-    fileprivate var alphaSpeed: Float {
-        switch config.fadeOut {
-        case .none:
-            return 0
-        case .slow:
-            return 4
-        case .medium:
-            return 2
-        case .fast:
-            return 0.5
-        }
-    }
-    
-    fileprivate var spreadRadius: CGFloat {
-        switch config.spreadRadius {
-        case .low:
-            return 1
-        case .medium:
-            return 6.284
-        case .high:
-            return 15.0
-        }
-    }
-    
     func createCell(with content: Content) -> CAEmitterCell {
         let cell = CAEmitterCell()
         
@@ -77,7 +20,7 @@ struct ConfettiViewRepresentable: EffectsViewRepresentable {
         cell.scaleRange = 0.2
         cell.scaleSpeed = 0.03
         cell.spinRange = 0.1
-        cell.velocity = velocity
+        cell.velocity = config.velocityValue
         cell.velocityRange = 8
         cell.xAcceleration = -0.2
         switch config.fallDirection {
@@ -87,13 +30,13 @@ struct ConfettiViewRepresentable: EffectsViewRepresentable {
             cell.yAcceleration = -200
         }
         cell.zAcceleration = -50
-        cell.emissionRange = spreadRadius
-        cell.birthRate = birthRate
-        cell.lifetime = lifetime
+        cell.emissionRange = config.spreadRadiusValue
+        cell.birthRate = config.birthRateValue
+        cell.lifetime = config.lifetimeValue
         cell.lifetimeRange = 4
         cell.fillMode = .forwards
         cell.alphaRange = 0.5
-        cell.alphaSpeed = alphaSpeed
+        cell.alphaSpeed = config.alphaSpeedValue
         cell.contents = content.image.cgImage
         if let color = content.color {
             cell.color = color.cgColor

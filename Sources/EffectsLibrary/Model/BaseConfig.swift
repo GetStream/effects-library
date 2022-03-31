@@ -17,4 +17,11 @@ protocol BaseConfig {
     var speed: Speed { get }
     var fadeOut: FadeOut { get }
     var spreadRadius: SpreadRadius { get }
+    
+    // default values for base configs view values
+    var birthRateValue: Float { get }
+    var lifetimeValue: Float { get }
+    var velocityValue: CGFloat { get }
+    var alphaSpeedValue: Float { get }
+    var spreadRadiusValue: CGFloat { get }
 }

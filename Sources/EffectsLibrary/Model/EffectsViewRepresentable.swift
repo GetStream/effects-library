@@ -85,15 +85,4 @@ extension EffectsViewRepresentable {
         
         return containerLayer
     }
-    
-    //    func calculateEmitterYPosition() -> CGFloat {
-    //        switch config.emitterPosition {
-    //        case .top:
-    //            return 0
-    //        case .center:
-    //            return proxy.size.height / 2
-    //        case .bottom:
-    //            return proxy.size.height
-    //        }
-    //    }
 }
