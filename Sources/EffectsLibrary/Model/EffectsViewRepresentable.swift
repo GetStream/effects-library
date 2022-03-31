@@ -80,8 +80,9 @@ extension EffectsViewRepresentable {
         containerLayer.bounds = CGRect(x: 0, y: 0, width: proxy.size.width, height: proxy.size.height)
         containerLayer.anchorPoint = CGPoint(x: 0, y: 0)
         containerLayer.backgroundColor = UIColor(config.backgroundColor).cgColor
-        //        containerLayer.emitterPosition = CGPoint(x: proxy.size.width / 2, y: calculateEmitterYPosition())
         containerLayer.emitterPosition = CGPoint(x: proxy.size.width / 2, y: emitterPositionY)
+        containerLayer.fillMode = .forwards
+        containerLayer.renderMode = .additive
         
         return containerLayer
     }

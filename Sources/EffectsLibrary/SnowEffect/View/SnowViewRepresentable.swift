@@ -11,12 +11,14 @@ struct SnowViewRepresentable: EffectsViewRepresentable {
     
     var proxy: GeometryProxy
     var config: SnowConfig
-    
+
     func createCell(with content: Content) -> CAEmitterCell {
         let cell = CAEmitterCell()
         
-        cell.contentsScale = (1 / scale) / content.scale
-        cell.scale = 0.001 / scale
+        cell.contents = content.image.cgImage
+        cell.contentsScale = scale / content.scale
+        cell.contentsScale = 10
+        cell.scale = 0.05
         cell.scaleRange = 0.2
         cell.scaleSpeed = 0.03
         cell.magnificationFilter = CALayerContentsFilter.nearest.rawValue
@@ -47,7 +49,6 @@ struct SnowViewRepresentable: EffectsViewRepresentable {
         cell.alphaSpeed = config.alphaSpeedValue
         cell.fillMode = .forwards
         
-        cell.contents = content.image.cgImage
         if let color = content.color {
             cell.color = color.cgColor
         }

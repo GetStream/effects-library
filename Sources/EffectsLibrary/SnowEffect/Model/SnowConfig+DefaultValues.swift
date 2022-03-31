@@ -13,9 +13,9 @@ extension SnowConfig {
         case .low:
             return 10
         case .medium:
-            return 25
+            return 100
         case .high:
-            return 50
+            return 400
         }
     }
     

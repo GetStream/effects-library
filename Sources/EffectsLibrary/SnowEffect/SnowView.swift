@@ -12,8 +12,9 @@ public struct SnowView: View {
     var config = SnowConfig(
         emitterPosition: .top,
         clipsToBounds: false,
+        backgroundColor: .blue,
         intensity: .medium,
-        lifetime: .short,
+        lifetime: .long,
         speed: .medium,
         spreadRadius: .medium,
         fallDirection: .downwards
@@ -29,5 +30,6 @@ public struct SnowView: View {
 struct SnowView_Previews: PreviewProvider {
     static var previews: some View {
         SnowView()
+            .edgesIgnoringSafeArea(.all)
     }
 }

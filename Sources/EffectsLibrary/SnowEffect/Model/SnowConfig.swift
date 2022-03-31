@@ -37,11 +37,11 @@ public struct SnowConfig: BaseConfig {
     
     public init(
         content: [Content] = [
-            .image(UIImage.loadFromBundle(named: "snow"), .blue, 0.7),
-            .emoji("❄️", 0.8),
-            .emoji("❆"),
-            .emoji("❄"),
-            .emoji("❅")
+            .image(UIImage.loadFromBundle(named: "snow"), .white),
+//            .emoji("❄️", 0.8),
+//            .emoji("❆"),
+//            .emoji("❄"),
+//            .emoji("❅")
         ],
         emitterPosition: EmitterPosition = .top,
         clipsToBounds: Bool = false,
