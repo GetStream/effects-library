@@ -16,4 +16,5 @@ protocol BaseConfig {
     var lifetime: Lifetime { get }
     var speed: Speed { get }
     var fadeOut: FadeOut { get }
+    var spreadRadius: SpreadRadius { get }
 }

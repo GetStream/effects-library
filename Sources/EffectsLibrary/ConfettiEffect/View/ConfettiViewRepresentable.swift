@@ -58,6 +58,17 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
         }
     }
     
+    fileprivate var spreadRadius: CGFloat {
+        switch config.spreadRadius {
+        case .low:
+            return 1
+        case .medium:
+            return 6.284
+        case .high:
+            return 15.0
+        }
+    }
+    
     fileprivate var scale: CGFloat {
         return proxy.size.width / UIScreen.main.bounds.width
     }
@@ -126,7 +137,7 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
             cell.yAcceleration = -200
         }
         cell.zAcceleration = -50
-        cell.emissionRange = 6.284
+        cell.emissionRange = spreadRadius
         cell.birthRate = birthRate
         cell.lifetime = lifetime
         cell.lifetimeRange = 4

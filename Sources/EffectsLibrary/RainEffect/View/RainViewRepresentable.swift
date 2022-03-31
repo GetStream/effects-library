@@ -73,6 +73,17 @@ struct RainViewRepresentable: UIViewRepresentable {
         }
     }
     
+    fileprivate var spreadRadius: CGFloat {
+        switch config.spreadRadius {
+        case .low:
+            return 1
+        case .medium:
+            return 6.284
+        case .high:
+            return 15.0
+        }
+    }
+    
     func makeUIView(context: Context) -> some UIView {
         return createView()
     }
@@ -134,7 +145,7 @@ struct RainViewRepresentable: UIViewRepresentable {
             cell.yAcceleration = -200
         }
         cell.zAcceleration = 50
-        cell.emissionRange = 6.284
+        cell.emissionRange = spreadRadius
         cell.birthRate = birthRate
         cell.lifetime = lifetime
         cell.lifetimeRange = 4

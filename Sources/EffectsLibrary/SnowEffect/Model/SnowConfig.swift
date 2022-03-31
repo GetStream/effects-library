@@ -30,6 +30,7 @@ public struct SnowConfig: BaseConfig {
     var lifetime: Lifetime
     var speed: Speed
     var fadeOut: FadeOut
+    var spreadRadius: SpreadRadius
     
     // custom parameters
     var fallDirection: FallDirection
@@ -49,6 +50,7 @@ public struct SnowConfig: BaseConfig {
         lifetime: Lifetime = .medium,
         speed: Speed = .medium,
         fadeOut: FadeOut = .none,
+        spreadRadius: SpreadRadius = .medium,
         fallDirection: FallDirection = .downwards
     ) {
         // base parameters
@@ -60,6 +62,7 @@ public struct SnowConfig: BaseConfig {
         self.lifetime = lifetime
         self.speed = speed
         self.fadeOut = fadeOut
+        self.spreadRadius = spreadRadius
         
         // custom parameters
         self.fallDirection = fallDirection

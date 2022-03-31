@@ -15,6 +15,7 @@ public struct SnowView: View {
         intensity: .low,
         lifetime: .short,
         speed: .slow,
+        spreadRadius: .medium,
         fallDirection: .downwards
     )
     
