@@ -7,25 +7,10 @@
 
 import SwiftUI
 
-struct RainViewRepresentable: UIViewRepresentable {
+struct RainViewRepresentable: EffectsViewRepresentable {
     
     var proxy: GeometryProxy
     var config: RainConfig
-    
-    fileprivate var scale: CGFloat {
-        return proxy.size.width / UIScreen.main.bounds.width
-    }
-    
-    fileprivate var emitterYPosition: CGFloat {
-        switch config.emitterPosition {
-        case .top:
-            return 0
-        case .center:
-            return proxy.size.height / 2
-        case .bottom:
-            return proxy.size.height
-        }
-    }
     
     fileprivate var birthRate: Float {
         switch config.intensity {
@@ -84,47 +69,7 @@ struct RainViewRepresentable: UIViewRepresentable {
         }
     }
     
-    func makeUIView(context: Context) -> some UIView {
-        return createView()
-    }
-    
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        // Todo
-    }
-    
-    fileprivate func createView() -> UIView {
-        let containerView = UIView()
-        containerView.backgroundColor = UIColor(config.backgroundColor)
-        containerView.clipsToBounds = config.clipsToBounds
-        
-        let containerLayer = CAEmitterLayer()
-        containerLayer.name = "Container"
-        containerLayer.bounds = CGRect(x: 0, y: 0, width: proxy.size.width, height: proxy.size.height)
-        containerLayer.anchorPoint = CGPoint(x: 0, y: 0)
-        containerLayer.backgroundColor = UIColor(config.backgroundColor).cgColor
-        containerLayer.emitterPosition = CGPoint(x: proxy.size.width / 2, y: emitterYPosition)
-        containerLayer.renderMode = .additive
-        containerLayer.fillMode = .forwards
-        containerLayer.allowsGroupOpacity = true
-        containerLayer.allowsEdgeAntialiasing = true
-        
-        
-        // Emitter Cells
-        let cells = configure(with: config.content)
-        
-        containerLayer.emitterCells = cells
-        containerView.layer.addSublayer(containerLayer)
-        
-        return containerView
-    }
-    
-    fileprivate func configure(with contents: [Content]) -> [CAEmitterCell] {
-        return contents.map { content in
-            return createCell(with: content)
-        }
-    }
-    
-    fileprivate func createCell(with content: Content) -> CAEmitterCell {
+    func createCell(with content: Content) -> CAEmitterCell {
         let cell = CAEmitterCell()
         
         cell.contentsScale = (1 / scale) / content.scale
