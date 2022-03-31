@@ -37,10 +37,10 @@ public struct ConfettiConfig: BaseConfig {
     
     public init(
         content: [Content] = [
-            .emoji("🎉"),
-            .emoji("🎊"),
+            .emoji("🎉", 0.8),
+            .emoji("🎊", 0.7),
             .emoji("🥳"),
-            .emoji("🎁")
+            .emoji("🎁", 0.6)
         ],
         emitterPosition: EmitterPosition = .top,
         clipsToBounds: Bool = false,

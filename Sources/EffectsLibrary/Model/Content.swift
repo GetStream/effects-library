@@ -17,16 +17,16 @@ public enum Content {
         case custom(CGPath)
     }
 
-    case shape(Shape, UIColor?)
-    case image(UIImage, UIColor?)
-    case emoji(Character)
+    case shape(Shape, UIColor?, CGFloat = 1)
+    case image(UIImage, UIColor?, CGFloat = 1)
+    case emoji(Character, CGFloat = 1)
 }
 
 extension Content {
     var color: UIColor? {
         switch self {
-        case let .image(_, color?),
-            let .shape(_, color?):
+        case let .image(_, color?, _),
+            let .shape(_, color?, _):
             return color
         default:
             return nil
@@ -35,12 +35,23 @@ extension Content {
     
     var image: UIImage {
         switch self {
-        case let .image(image, _):
+        case let .image(image, _, _):
             return image
-        case let .shape(shape, color):
+        case let .shape(shape, color, _):
             return shape.image(with: color ?? .white)
-        case let .emoji(character):
+        case let .emoji(character, _):
             return "\(character)".image()
+        }
+    }
+    
+    var scale: CGFloat {
+        switch self {
+        case .shape(_, _, let scale):
+            return scale
+        case .image(_, _, let scale):
+            return scale
+        case .emoji(_, let scale):
+            return scale
         }
     }
 }

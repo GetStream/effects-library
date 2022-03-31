@@ -122,7 +122,7 @@ struct ConfettiViewRepresentable: UIViewRepresentable {
     fileprivate func createCell(with content: Content) -> CAEmitterCell {
         let cell = CAEmitterCell()
         
-        cell.contentsScale = 0.1 / scale
+        cell.contentsScale = (0.1 / scale) / content.scale
         cell.scale = 0.01 / scale
         cell.scaleRange = 0.2
         cell.scaleSpeed = 0.03
