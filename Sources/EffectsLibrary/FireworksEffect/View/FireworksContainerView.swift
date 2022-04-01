@@ -14,7 +14,10 @@ struct FireworksContainerView: View {
     var config: FireworksConfig
     
     var body: some View {
-        SpriteView(scene: createScene(of: proxy.size))
+        return SpriteView(
+            scene: createScene(of: proxy.size),
+            options: [.allowsTransparency]
+        )
     }
     
     func createScene(of size: CGSize) -> SKScene {

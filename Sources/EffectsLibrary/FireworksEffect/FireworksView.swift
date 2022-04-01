@@ -10,7 +10,9 @@ import SpriteKit
 
 struct FireworksView: View {
     
-    var config = FireworksConfig(intensity: .high)
+    var config = FireworksConfig(
+        intensity: .high
+    )
     
     var body: some View {
         GeometryReader { proxy in
@@ -22,20 +24,6 @@ struct FireworksView: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            FireworksView()
-            
-            FireworksView(
-                config: FireworksConfig(
-                    content: [ .emoji("😎", 15)],
-                    intensity: .low,
-                    lifetime: .long,
-                    speed: .fast,
-                    fadeOut: .slow,
-                    spreadRadius: .low
-                )
-            )
-        }
-        
+        FireworksView()
     }
 }
