@@ -57,11 +57,11 @@ extension ConfettiConfig {
     var spreadRadiusValue: CGFloat {
         switch spreadRadius {
         case .low:
-            return 1
+            return -.pi / 4
         case .medium:
-            return 6.284
+            return .pi
         case .high:
-            return 15.0
+            return .pi * 2
         }
     }
 }
