@@ -34,6 +34,28 @@ class GameScene: SKScene {
         )
     }
     
+    var customBirthRate: CGFloat {
+        switch config.intensity {
+        case .low:
+            return 512
+        case .medium:
+            return 2048
+        case .high:
+            return 4096
+        }
+    }
+    
+    var customParticlesToEmit: Int {
+        switch config.intensity {
+        case .low:
+            return 126
+        case .medium:
+            return 256
+        case .high:
+            return 512
+        }
+    }
+    
     func explosion(at point: CGPoint) {
         let node = SKEmitterNode()
 //        node.particleTexture = SKTexture(image: UIImage.loadFromBundle(named: "spark"))
@@ -42,8 +64,8 @@ class GameScene: SKScene {
         node.particleTexture = SKTexture(image: content.image)
         
         // Particle General
-        node.particleBirthRate = 2048
-        node.numParticlesToEmit = 256
+        node.particleBirthRate = customBirthRate
+        node.numParticlesToEmit = customParticlesToEmit
         node.particleLifetime = CGFloat(config.lifetimeValue)
         node.yAcceleration = -500
         
