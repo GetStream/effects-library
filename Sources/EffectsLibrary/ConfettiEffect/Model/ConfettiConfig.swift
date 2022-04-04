@@ -14,17 +14,15 @@ import SwiftUI
 ///
 /// - Parameters:
 ///     - content: This is an array of `Content` enum objects. You can see its documentation for how to use/implement those  (see ``Content`` for more information). It offers the following cases: `.image`, `.emoji`,  and `.shape`. Default value here is a mix of the following emojis: "🎉🎊🥳🎁".
-///     - emitterPosition: Describes the position of the root of the effect. Implemented as an enum with the following options: `.top`, `.center`, and `.bottom`. Default value is `.top`.
-///     - clipsToBounds: specifies whether the effect is constrained to the `ConfettiView` itself or can leak around. Default is `false` (effect leaks outside).
 ///     - backgroundColor: the background color of the view that contains the effect. Default is `.clear`.
 ///     - birthRate: a `Float` that defines how much particles of the effect are emitted. The higher the value, the more intense the effect will be. The lower the value the fewer particles are emitted. Default value is `25`.
 ///     - lifetime:a `Float`  that specifies how long particles remain on screen after they are emitted. The lower the value the shorter time each particle is alive. Higher values keep content on the screen for longer. Does not have an effect on the speed or direction items behave on the screen. Default value is `10`.
+///     - emitterPosition: Describes the position of the root of the effect. Implemented as an enum with the following options: `.top`, `.center`, and `.bottom`. Default value is `.top`.
+///     - clipsToBounds: specifies whether the effect is constrained to the `ConfettiView` itself or can leak around. Default is `false` (effect leaks outside).
 ///     - fallDirection: an enum value of type `FallDirection`. There are two options for now, being `.upwards` (particles are moving up the screen from the source they are emitted) and `.downwards` (particles are falling downwards from the origin of the source). Default is `.downwards`.
-public struct ConfettiConfig: BaseConfig {
-    // base parameters
+public struct ConfettiConfig: EmitterLayerConfig {
+    // base config parameters
     var content: [Content]
-    var emitterPosition: EmitterPosition
-    var clipsToBounds: Bool
     var backgroundColor: Color
     var intensity: Intensity
     var lifetime: Lifetime
@@ -32,7 +30,9 @@ public struct ConfettiConfig: BaseConfig {
     var fadeOut: FadeOut
     var spreadRadius: SpreadRadius
     
-    // custom parameters
+    // emitter layer config parameters
+    var emitterPosition: EmitterPosition
+    var clipsToBounds: Bool
     var fallDirection: FallDirection
     
     public init(

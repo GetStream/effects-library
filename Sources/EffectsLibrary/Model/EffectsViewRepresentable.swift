@@ -9,7 +9,7 @@ import SwiftUI
 
 protocol EffectsViewRepresentable: UIViewRepresentable {
     
-    associatedtype Config: BaseConfig
+    associatedtype Config: EmitterLayerConfig
     
     var proxy: GeometryProxy { get }
     var config: Config { get }
@@ -21,7 +21,6 @@ protocol EffectsViewRepresentable: UIViewRepresentable {
     func createView() -> UIView
     func createBaseView() -> UIView
     func createBaseLayer() -> CAEmitterLayer
-    //    func calculateEmitterYPosition() -> CGFloat
     
     func createCell(with content: Content) -> CAEmitterCell
 }
@@ -59,8 +58,6 @@ extension EffectsViewRepresentable {
 }
 
 extension EffectsViewRepresentable {
-    
-    
     
     func createView() -> UIView {
         let baseView = createBaseView()

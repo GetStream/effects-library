@@ -56,7 +56,6 @@ class GameScene: SKScene {
     
     func explosion(at point: CGPoint) {
         let node = SKEmitterNode()
-//        node.particleTexture = SKTexture(image: UIImage.loadFromBundle(named: "spark"))
         guard let content = config.content.randomElement() else { return }
         
         node.particleTexture = SKTexture(image: content.image)

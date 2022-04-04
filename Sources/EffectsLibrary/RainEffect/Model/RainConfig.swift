@@ -20,11 +20,9 @@ import SwiftUI
 ///     - birthRate: a `Float` that defines how much particles of the effect are emitted. The higher the value, the more intense the effect will be. The lower the value the fewer particles are emitted. Default value is `200`.
 ///     - lifetime:a ``Lifetime``  that specifies how long particles remain on screen after they are emitted. The lower the value the shorter time each particle is alive. Higher values keep content on the screen for longer. Does not have an effect on the speed or direction items behave on the screen. Default value is `.medium`.
 ///     - fallDirection: an enum value of type ``FallDirection``. There are two options for now, being `.upwards` (particles are moving up the screen from the source they are emitted) and `.downwards` (particles are falling downwards from the origin of the source). Default is `.downwards`.
-public struct RainConfig: BaseConfig {
-    // base parameters
+public struct RainConfig: EmitterLayerConfig {
+    // base config parameters
     var content: [Content]
-    var emitterPosition: EmitterPosition
-    var clipsToBounds: Bool
     var backgroundColor: Color
     var intensity: Intensity
     var lifetime: Lifetime
@@ -32,7 +30,9 @@ public struct RainConfig: BaseConfig {
     var fadeOut: FadeOut
     var spreadRadius: SpreadRadius
     
-    // custom parameters
+    // emitter layer config parameters
+    var emitterPosition: EmitterPosition
+    var clipsToBounds: Bool
     var fallDirection: FallDirection
     
     public init(
