@@ -12,7 +12,7 @@ protocol BaseConfig {
     var backgroundColor: Color { get }
     var intensity: Intensity { get }
     var lifetime: Lifetime { get }
-    var speed: Speed { get }
+    var initialVelocity: InitialVelocity { get }
     var fadeOut: FadeOut { get }
     var spreadRadius: SpreadRadius { get }
     

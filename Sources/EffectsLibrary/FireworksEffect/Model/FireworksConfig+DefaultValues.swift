@@ -31,7 +31,7 @@ extension FireworksConfig {
     }
     
     var velocityValue: CGFloat {
-        switch speed {
+        switch initialVelocity {
         case .slow:
             return 10
         case .medium:

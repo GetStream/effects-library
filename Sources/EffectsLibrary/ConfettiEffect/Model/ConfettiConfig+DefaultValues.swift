@@ -31,7 +31,7 @@ extension ConfettiConfig {
     }
     
     var velocityValue: CGFloat {
-        switch speed {
+        switch initialVelocity {
         case .slow:
             return 10
         case .medium:

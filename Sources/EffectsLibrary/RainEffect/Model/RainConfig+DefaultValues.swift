@@ -31,7 +31,7 @@ extension RainConfig {
     }
     
     var velocityValue: CGFloat {
-        switch speed {
+        switch initialVelocity {
         case .slow:
             return 50
         case .medium:

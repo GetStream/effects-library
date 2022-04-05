@@ -8,13 +8,13 @@
 import SwiftUI
 import SpriteKit
 
-struct FireworksView: View {
+public struct FireworksView: View {
     
     var config = FireworksConfig(
         intensity: .high
     )
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { proxy in
             FireworksContainerView(proxy: proxy, config: config)
         }

@@ -18,7 +18,7 @@ import SwiftUI
 ///     - clipsToBounds: specifies whether the effect is constrained to the ``RainView`` itself or can leak around. Default is `false` (effect leaks outside).
 ///     - backgroundColor: the background color of the view that contains the effect. Default is `.clear`.
 ///     - birthRate: a `Float` that defines how much particles of the effect are emitted. The higher the value, the more intense the effect will be. The lower the value the fewer particles are emitted. Default value is `200`.
-///     - lifetime:a ``Lifetime``  that specifies how long particles remain on screen after they are emitted. The lower the value the shorter time each particle is alive. Higher values keep content on the screen for longer. Does not have an effect on the speed or direction items behave on the screen. Default value is `.medium`.
+///     - lifetime:a ``Lifetime``  that specifies how long particles remain on screen after they are emitted. The lower the value the shorter time each particle is alive. Higher values keep content on the screen for longer. Does not have an effect on the initialVelocity or direction items behave on the screen. Default value is `.medium`.
 ///     - fallDirection: an enum value of type ``FallDirection``. There are two options for now, being `.upwards` (particles are moving up the screen from the source they are emitted) and `.downwards` (particles are falling downwards from the origin of the source). Default is `.downwards`.
 public struct RainConfig: EmitterLayerConfig {
     // base config parameters
@@ -26,7 +26,7 @@ public struct RainConfig: EmitterLayerConfig {
     var backgroundColor: Color
     var intensity: Intensity
     var lifetime: Lifetime
-    var speed: Speed
+    var initialVelocity: InitialVelocity
     var fadeOut: FadeOut
     var spreadRadius: SpreadRadius
     
@@ -44,7 +44,7 @@ public struct RainConfig: EmitterLayerConfig {
         backgroundColor: Color = .clear,
         intensity: Intensity = .medium,
         lifetime: Lifetime = .medium,
-        speed: Speed = .medium,
+        speed: InitialVelocity = .medium,
         fadeOut: FadeOut = .none,
         spreadRadius: SpreadRadius = .medium,
         fallDirection: FallDirection = .downwards
@@ -56,7 +56,7 @@ public struct RainConfig: EmitterLayerConfig {
         self.backgroundColor = backgroundColor
         self.intensity = intensity
         self.lifetime = lifetime
-        self.speed = speed
+        self.initialVelocity = speed
         self.fadeOut = fadeOut
         self.spreadRadius = spreadRadius
         
