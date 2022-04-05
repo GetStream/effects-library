@@ -10,13 +10,13 @@ import SwiftUI
 public struct SnowView: View {
     
     var config = SnowConfig(
-        emitterPosition: .top,
-        clipsToBounds: false,
         backgroundColor: .blue,
         intensity: .medium,
         lifetime: .long,
-        speed: .medium,
+        initialVelocity: .medium,
         spreadRadius: .medium,
+        emitterPosition: .top,
+        clipsToBounds: false,
         fallDirection: .downwards
     )
     
