@@ -10,13 +10,13 @@ import SwiftUI
 public struct RainView: View {
     
     var config = RainConfig(
-        emitterPosition: .top,
-        clipsToBounds: false,
         intensity: .high,
         lifetime: .medium,
-        speed: .medium,
+        initialVelocity: .medium,
         fadeOut: .fast,
         spreadRadius: .medium,
+        emitterPosition: .top,
+        clipsToBounds: false,
         fallDirection: .downwards
     )
     
