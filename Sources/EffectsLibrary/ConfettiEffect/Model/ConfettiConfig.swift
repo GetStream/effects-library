@@ -14,56 +14,32 @@ import SwiftUI
 ///
 /// - Parameters:
 ///     - content: This is an array of `Content` enum objects. You can see its documentation for how to use/implement those  (see ``Content`` for more information). It offers the following cases: `.image`, `.emoji`,  and `.shape`. Default value here is a mix of the following emojis: "🎉🎊🥳🎁".
-///     - backgroundColor: the background color of the view that contains the effect. Default is `.clear`.
-///     - birthRate: a `Float` that defines how much particles of the effect are emitted. The higher the value, the more intense the effect will be. The lower the value the fewer particles are emitted. Default value is `25`.
-///     - lifetime:a `Float`  that specifies how long particles remain on screen after they are emitted. The lower the value the shorter time each particle is alive. Higher values keep content on the screen for longer. Does not have an effect on the initialVelocity or direction items behave on the screen. Default value is `10`.
+///     - `backgroundColor`: The background color (of type `Color`) of the view that contains the effect. Default is `.clear`.
+///     - `intensity`: The intensity of the effect.  It will be translated into different values internally that will lead to varying intensities of the effect. The type is ``Intensity`` and it can take the different values `.low`, `medium` and `high`. For more information on what it does see the documentation for the ``Intensity`` type. Default in this case is `.medium`.
+///     - `lifetime`: Defines how long the single elements of the effect will stay alive. The type is ``Lifetime`` (click to see more details) and it has the values `.short`, `.medium` and `.long`. Default is `.medium`.
+///     - `initialVelocity`: Specifies the initial speed with which confeti particles will be emitted from the source. The higher the value the larger the radius of the effects as elements will spread in a larger radius around the source. The type is ``InitialVelocity`` and possible values are `.slow`, `.medium`, and `.fast`. Default value is `.medium`.
+///     - `fadeOut`: Specifies how fast elements of the effect will fade out (meaning: become transparent). Difference to `lifetime` is that there elements will be removed instantly whereas here there is a fading effect that is more subtle over time. The type is ``FadeOut`` (click to see more details) with the values `.none`, `.slow`, `.medium`, and `.fast`. Default is `.medium`.
+///     - `spreadRadius`: Defines the angle in which the single elements of the effect are emitted. The type ``SpreadRadius`` (click to see more details) defines 3 values: `.low`, `.medium`, and `.high`. The default is `.high` (leading to a complete circle of particles emitted from the source).
 ///     - emitterPosition: Describes the position of the root of the effect. Implemented as an enum with the following options: `.top`, `.center`, and `.bottom`. Default value is `.top`.
 ///     - clipsToBounds: specifies whether the effect is constrained to the `ConfettiView` itself or can leak around. Default is `false` (effect leaks outside).
 ///     - fallDirection: an enum value of type `FallDirection`. There are two options for now, being `.upwards` (particles are moving up the screen from the source they are emitted) and `.downwards` (particles are falling downwards from the origin of the source). Default is `.downwards`.
 public struct ConfettiConfig: EmitterLayerConfig {
     // base config parameters
-    var content: [Content]
-    var backgroundColor: Color
-    var intensity: Intensity
-    var lifetime: Lifetime
-    var initialVelocity: InitialVelocity
-    var fadeOut: FadeOut
-    var spreadRadius: SpreadRadius
+    var content: [Content] = [
+        .emoji("🎉", 0.7),
+        .emoji("🎊", 0.7),
+        .emoji("🥳", 0.7),
+        .emoji("🎁", 0.6)
+    ]
+    var backgroundColor: Color = .clear
+    var intensity: Intensity = .medium
+    var lifetime: Lifetime = .medium
+    var initialVelocity: InitialVelocity = .medium
+    var fadeOut: FadeOut = .medium
+    var spreadRadius: SpreadRadius = .high
     
     // emitter layer config parameters
-    var emitterPosition: EmitterPosition
-    var clipsToBounds: Bool
-    var fallDirection: FallDirection
-    
-    public init(
-        content: [Content] = [
-            .emoji("🎉", 0.7),
-            .emoji("🎊", 0.7),
-            .emoji("🥳", 0.7),
-            .emoji("🎁", 0.6)
-        ],
-        emitterPosition: EmitterPosition = .top,
-        clipsToBounds: Bool = false,
-        backgroundColor: Color = .clear,
-        intensity: Intensity = .medium,
-        lifetime: Lifetime = .medium,
-        speed: InitialVelocity = .medium,
-        fadeOut: FadeOut = .none,
-        spreadRadius: SpreadRadius = .medium,
-        fallDirection: FallDirection = .downwards
-    ) {
-        // base parameters
-        self.content = content
-        self.emitterPosition = emitterPosition
-        self.clipsToBounds = clipsToBounds
-        self.backgroundColor = backgroundColor
-        self.intensity = intensity
-        self.lifetime = lifetime
-        self.initialVelocity = speed
-        self.fadeOut = fadeOut
-        self.spreadRadius = spreadRadius
-        
-        // custom parameters
-        self.fallDirection = fallDirection
-    }
+    var emitterPosition: EmitterPosition = .top
+    var clipsToBounds: Bool = false
+    var fallDirection: FallDirection = .downwards
 }

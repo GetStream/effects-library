@@ -10,13 +10,13 @@ import SwiftUI
 public struct ConfettiView: View {
     
     var config: ConfettiConfig = ConfettiConfig(
-        emitterPosition: .top,
-        clipsToBounds: false,
         intensity: .high,
         lifetime: .medium,
-        speed: .fast,
+        initialVelocity: .fast,
         fadeOut: .fast,
         spreadRadius: .medium,
+        emitterPosition: .top,
+        clipsToBounds: false,
         fallDirection: .downwards
     )
     
