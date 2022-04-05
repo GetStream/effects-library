@@ -20,11 +20,9 @@ import SwiftUI
 ///     - birthRate: a `Float` that defines how much particles of the effect are emitted. The higher the value, the more intense the effect will be. The lower the value the fewer particles are emitted. Default value is `200`.
 ///     - lifetime:a `Float`  that specifies how long particles remain on screen after they are emitted. The lower the value the shorter time each particle is alive. Higher values keep content on the screen for longer. Does not have an effect on the speed or direction items behave on the screen. Default value is `10`.
 ///     - fallDirection: an enum value of type `FallDirection`. There are two options for now, being `.upwards` (particles are moving up the screen from the source they are emitted) and `.downwards` (particles are falling downwards from the origin of the source). Default is `.downwards`.
-public struct SnowConfig: BaseConfig {
-    // base parameters
+public struct SnowConfig: EmitterLayerConfig {
+    // base config parameters
     var content: [Content]
-    var emitterPosition: EmitterPosition
-    var clipsToBounds: Bool
     var backgroundColor: Color
     var intensity: Intensity
     var lifetime: Lifetime
@@ -32,12 +30,14 @@ public struct SnowConfig: BaseConfig {
     var fadeOut: FadeOut
     var spreadRadius: SpreadRadius
     
-    // custom parameters
+    // emitter layer config parameters
+    var emitterPosition: EmitterPosition
+    var clipsToBounds: Bool
     var fallDirection: FallDirection
     
     public init(
         content: [Content] = [
-            .image(UIImage.loadFromBundle(named: "snow"), .white),
+            .image(UIImage.loadFromBundle(named: .snow), .white),
 //            .emoji("❄️", 0.8),
 //            .emoji("❆"),
 //            .emoji("❄"),

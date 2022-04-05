@@ -1,5 +1,5 @@
 //
-//  ConfettiConfig+DefaultValues.swift
+//  FireworksConfig+DefaultValues.swift
 //  
 //
 //  Created by Stefan Blos on 31.03.22.
@@ -7,26 +7,26 @@
 
 import SwiftUI
 
-extension ConfettiConfig {
+extension FireworksConfig {
     var birthRateValue: Float {
         switch intensity {
         case .low:
-            return 5
+            return 1.5
         case .medium:
-            return 15
+            return 0.5
         case .high:
-            return 30
+            return 0.1
         }
     }
     
     var lifetimeValue: Float {
         switch lifetime {
         case .short:
-            return 4
+            return 0.2
         case .medium:
-            return 10
+            return 0.5
         case .long:
-            return 20
+            return 1.5
         }
     }
     
@@ -35,9 +35,9 @@ extension ConfettiConfig {
         case .slow:
             return 10
         case .medium:
-            return 100
-        case .fast:
             return 200
+        case .fast:
+            return 400
         }
     }
     
@@ -46,22 +46,23 @@ extension ConfettiConfig {
         case .none:
             return 0
         case .slow:
-            return 4
+            return 0.2
         case .medium:
-            return 2
+            return -1.4
         case .fast:
-            return 0.5
+            return -3
         }
     }
     
     var spreadRadiusValue: CGFloat {
         switch spreadRadius {
         case .low:
-            return -.pi / 4
+            return .pi / 4
         case .medium:
             return .pi
         case .high:
             return .pi * 2
         }
     }
+
 }
