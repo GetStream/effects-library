@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  FireworksView.swift
 //  
 //
 //  Created by Stefan Blos on 31.03.22.
