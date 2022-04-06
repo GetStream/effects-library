@@ -15,8 +15,7 @@ struct RainViewRepresentable: EffectsViewRepresentable {
     func createCell(with content: Content) -> CAEmitterCell {
         let cell = CAEmitterCell()
         
-        cell.contentsScale = (1 / scale) / content.scale
-//        cell.scale = 0.005 / scale
+        cell.contentsScale = 1 / content.scale
         cell.scaleRange = 0.02
         cell.scaleSpeed = -0.005
         cell.magnificationFilter = CALayerContentsFilter.trilinear.rawValue

@@ -18,3 +18,5 @@ Text for the overview.
 - ``ConfettiView``
 - ``RainView``
 - ``SnowView``
+- ``FireworksView``
+- ``SmokeView``

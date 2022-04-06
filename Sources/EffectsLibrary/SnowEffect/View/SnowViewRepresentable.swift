@@ -16,7 +16,7 @@ struct SnowViewRepresentable: EffectsViewRepresentable {
         let cell = CAEmitterCell()
         
         cell.contents = content.image.cgImage
-        cell.contentsScale = scale / content.scale
+        cell.contentsScale = content.scale
         cell.contentsScale = 10
         cell.scale = 0.05
         cell.scaleRange = 0.2

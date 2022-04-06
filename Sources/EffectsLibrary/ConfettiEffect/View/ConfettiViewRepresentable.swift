@@ -19,8 +19,8 @@ struct ConfettiViewRepresentable: EffectsViewRepresentable {
     func createCell(with content: Content) -> CAEmitterCell {
         let cell = CAEmitterCell()
         
-        cell.contentsScale = (0.1 / scale) / content.scale
-        cell.scale = 0.01 / scale
+        cell.contentsScale = 0.1 / content.scale
+        cell.scale = 0.01
         cell.scaleRange = 0.2
         cell.scaleSpeed = 0.03
         cell.spinRange = 0.1

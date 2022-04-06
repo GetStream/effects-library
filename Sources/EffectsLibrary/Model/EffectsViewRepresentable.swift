@@ -15,7 +15,6 @@ protocol EffectsViewRepresentable: UIViewRepresentable {
     var config: Config { get }
     
     var emitterPositionY: CGFloat { get }
-    var scale: CGFloat { get }
     var viewRenderMode: CAEmitterLayerRenderMode { get }
     
     func createView() -> UIView
@@ -46,10 +45,6 @@ extension EffectsViewRepresentable {
         case .bottom:
             return proxy.size.height
         }
-    }
-    
-    var scale: CGFloat {
-        return proxy.size.width / UIScreen.main.bounds.width
     }
     
     var viewRenderMode: CAEmitterLayerRenderMode {
