@@ -1,5 +1,5 @@
 //
-//  FireworksGameScene.swift
+//  FireworksScene.swift
 //  
 //
 //  Created by Stefan Blos on 31.03.22.
@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class FireworksScene: SKScene {
     
     var config: FireworksConfig
     

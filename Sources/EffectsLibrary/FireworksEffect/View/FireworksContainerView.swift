@@ -21,7 +21,6 @@ struct FireworksContainerView: View {
     }
     
     func createScene(of size: CGSize) -> SKScene {
-        let scene = GameScene(size: size, config: config)
-        return scene
+        return FireworksScene(size: size, config: config)
     }
 }
