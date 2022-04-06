@@ -33,11 +33,11 @@ extension SmokeConfig {
     var velocityValue: CGFloat {
         switch initialVelocity {
         case .slow:
-            return 10
+            return 5
         case .medium:
-            return 200
+            return 40
         case .fast:
-            return 400
+            return 100
         }
     }
     
@@ -46,11 +46,11 @@ extension SmokeConfig {
         case .none:
             return 0
         case .slow:
-            return 0.2
+            return -0.08
         case .medium:
-            return -1.4
+            return -0.15
         case .fast:
-            return -3
+            return -0.28
         }
     }
     

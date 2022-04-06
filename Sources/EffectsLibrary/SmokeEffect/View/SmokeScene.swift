@@ -50,19 +50,18 @@ class SmokeScene: SKScene {
             node.particlePositionRange = CGVector(dx: size.width / 4, dy: 30)
             
             node.emissionAngle = 0
-            node.emissionAngleRange = .pi * 2
+            node.emissionAngleRange = config.spreadRadiusValue
             
             node.particleAlpha = 0.4
             node.particleAlphaRange = 0.3
-            node.particleAlphaSpeed = -0.15
+            node.particleAlphaSpeed = CGFloat(config.alphaSpeedValue)
             
-            node.yAcceleration = 10
-            
-            node.particleScale = 0.5 * contentElement.scale
+            node.yAcceleration = 0
+            node.particleScale = contentElement.scale
             node.particleScaleRange = 0.3
             node.particleScaleSpeed = 0.5
             
-            node.particleSpeed = 40
+            node.particleSpeed = config.velocityValue
             node.particleSpeedRange = 40
             node.particleColor = .black
             node.particleColorBlendFactor = 1
