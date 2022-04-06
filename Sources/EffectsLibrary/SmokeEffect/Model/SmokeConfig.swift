@@ -29,5 +29,28 @@ public struct SmokeConfig: BaseConfig {
     var initialVelocity: InitialVelocity = .medium
     var fadeOut: FadeOut = .medium
     var spreadRadius: SpreadRadius = .high
+    
+    /// We need to define custom public initializers as they're internal by default.
+    public init() {}
+    
+    /// We need to define custom public initializers as they're internal by default.
+    public init(
+        content: [Content] = [
+            .image(UIImage.loadFromBundle(named: .spark), nil, 1)
+        ],
+        backgroundColor: Color = .clear,
+        intensity: Intensity = .medium,
+        lifetime: Lifetime = .medium,
+        initialVelocity: InitialVelocity = .medium,
+        fadeOut: FadeOut = .medium,
+        spreadRadius: SpreadRadius = .high
+    ) {
+        self.content = content
+        self.backgroundColor = backgroundColor
+        self.intensity = intensity
+        self.initialVelocity = initialVelocity
+        self.fadeOut = fadeOut
+        self.spreadRadius = spreadRadius
+    }
 }
 

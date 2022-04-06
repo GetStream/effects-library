@@ -39,4 +39,37 @@ public struct RainConfig: EmitterLayerConfig {
     var emitterPosition: EmitterPosition = .top
     var clipsToBounds: Bool = false
     var fallDirection: FallDirection = .downwards
+    
+    /// We need to define custom public initializers as they're internal by default.
+    public init() {}
+    
+    /// We need to define custom public initializers as they're internal by default.
+    public init(
+        content: [Content] = [
+            .image(UIImage.loadFromBundle(named: .raindrop), nil, 0.004)
+        ],
+        backgroundColor: Color = .clear,
+        intensity: Intensity = .medium,
+        lifetime: Lifetime = .medium,
+        initialVelocity: InitialVelocity = .medium,
+        fadeOut: FadeOut = .medium,
+        spreadRadius: SpreadRadius = .medium,
+        
+        // emitter layer config parameters
+        emitterPosition: EmitterPosition = .top,
+        clipsToBounds: Bool = false,
+        fallDirection: FallDirection = .downwards
+    ) {
+        self.content = content
+        self.backgroundColor = backgroundColor
+        self.intensity = intensity
+        self.lifetime = lifetime
+        self.initialVelocity = initialVelocity
+        self.fadeOut = fadeOut
+        self.spreadRadius = spreadRadius
+        
+        self.emitterPosition = emitterPosition
+        self.clipsToBounds = clipsToBounds
+        self.fallDirection = fallDirection
+    }
 }
