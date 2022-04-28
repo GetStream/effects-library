@@ -1,5 +1,5 @@
 @Tutorial(time: 20) {
-    @Intro(title: "What is this about?") {
+    @Intro(title: "Getting started with the EffectsLibrary") {
         In this getting started tutorial we will go through integrating the *Effects Library* into your own project. We will go over the process from scratch and cover everything step by step so that you can follow along.
         
         There is no prerequisite other than Xcode (which involves having a Mac in some form, of course). Grab yourself your favorite drink (coffee, for me) and get ready to see how easy it is to bring amazing effects into your app with very little effort.
@@ -80,7 +80,7 @@
             
         @Steps {
             @Step {
-                Open up the `ContentView` of your project.
+                Open up the `ContentView.swift` file of your project.
                 
                 @Code(name: "ContentView.swift", file: 01-getting-started-02-01.swift)
             }
@@ -118,10 +118,42 @@
     @Section(title: "Basic customization options for the effects view") {
         @ContentAndMedia {
             That has been a very easy and quick setup. We wanted to make it as easy as possible to get started. But, of course, there's a lot of customization options you can add to your views as well.
+            
+            We will go over a few basic ones now and have a separate tutorial for more advances options.
+            
+            Let's first start with overlaying the effect on top of a `View` that was created before. We'll create a fun, little congratulations screen and add the `ConfettiView` on top.
         }
         
         @Steps {
+            @Step {
+                We start by opening up `ContentView.swift` again.
+                
+                @Code(name: "ContentView.swift", file: 01-getting-started-03-01.swift)
+            }
             
+            @Step {
+                We add a basic layout for a screen that is congratulating the user for their achievement.
+                
+                @Code(name: "ContentView.swift", file: 01-getting-started-03-02.swift) {
+                    @Image(source: "01-getting-started-03-02-preview", alt: "Preview of the congratulations screen.")
+                }
+            }
+            
+            @Step {
+                Next, we embed the `VStack` into a `ZStack` to be able to show something on top of it.
+                
+                @Code(name: "ContentView.swift", file: 01-getting-started-03-03.swift) {
+                    @Image(source: "01-getting-started-03-02-preview", alt: "Preview of the congratulations screen.")
+                }
+            }
+            
+            @Step {
+                The last step is to add the `ConfettiView` as the second item in the `ZStack` so that it is rendered on top of the `VStack` that holds the content of the congratulations screen.
+                
+                @Code(name: "ContentView.swift", file: 01-getting-started-03-04.swift) {
+                    @Image(source: "01-getting-started-03-04-preview-gif", alt: "Preview of the confetti effect on top of the congratulations screen.")
+                }
+            }
         }
 }
     
