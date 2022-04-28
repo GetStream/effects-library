@@ -9,7 +9,9 @@ import SwiftUI
 
 public struct ConfettiView: View {
     
-    public var config: ConfettiConfig = ConfettiConfig(
+    private var config: ConfettiConfig
+    
+    public init(config: ConfettiConfig = ConfettiConfig(
         intensity: .high,
         lifetime: .medium,
         initialVelocity: .fast,
@@ -18,7 +20,9 @@ public struct ConfettiView: View {
         emitterPosition: .top,
         clipsToBounds: false,
         fallDirection: .downwards
-    )
+    )) {
+        self.config = config
+    }
     
     public var body: some View {
         GeometryReader { proxy in
