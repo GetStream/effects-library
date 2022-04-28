@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct ConfettiView: View {
     
-    var config: ConfettiConfig = ConfettiConfig(
+    public var config: ConfettiConfig = ConfettiConfig(
         intensity: .high,
         lifetime: .medium,
         initialVelocity: .fast,
