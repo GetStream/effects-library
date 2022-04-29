@@ -9,13 +9,11 @@ import SwiftUI
 
 public struct SmokeView: View {
     
-    var config = SmokeConfig(
-        intensity: .medium,
-        lifetime: .medium,
-        initialVelocity: .medium,
-        fadeOut: .medium,
-        spreadRadius: .high
-    )
+    private var config: SmokeConfig
+    
+    public init(config: SmokeConfig = SmokeConfig()) {
+        self.config = config
+    }
     
     public var body: some View {
         GeometryReader { proxy in

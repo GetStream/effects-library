@@ -9,16 +9,11 @@ import SwiftUI
 
 public struct RainView: View {
     
-    var config = RainConfig(
-        intensity: .high,
-        lifetime: .medium,
-        initialVelocity: .medium,
-        fadeOut: .fast,
-        spreadRadius: .medium,
-        emitterPosition: .top,
-        clipsToBounds: false,
-        fallDirection: .downwards
-    )
+    private var config: RainConfig
+    
+    public init(config: RainConfig = RainConfig()) {
+        self.config = config
+    }
     
     public var body: some View {
         GeometryReader { proxy in

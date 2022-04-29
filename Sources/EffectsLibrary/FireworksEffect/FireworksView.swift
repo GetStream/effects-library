@@ -10,9 +10,11 @@ import SpriteKit
 
 public struct FireworksView: View {
     
-    var config = FireworksConfig(
-        intensity: .high
-    )
+    private var config: FireworksConfig
+    
+    public init(config: FireworksConfig = FireworksConfig()) {
+        self.config = config
+    }
     
     public var body: some View {
         GeometryReader { proxy in

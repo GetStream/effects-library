@@ -11,16 +11,7 @@ public struct ConfettiView: View {
     
     private var config: ConfettiConfig
     
-    public init(config: ConfettiConfig = ConfettiConfig(
-        intensity: .high,
-        lifetime: .medium,
-        initialVelocity: .fast,
-        fadeOut: .fast,
-        spreadRadius: .medium,
-        emitterPosition: .top,
-        clipsToBounds: false,
-        fallDirection: .downwards
-    )) {
+    public init(config: ConfettiConfig = ConfettiConfig()) {
         self.config = config
     }
     

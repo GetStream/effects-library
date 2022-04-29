@@ -9,13 +9,11 @@ import SwiftUI
 
 struct FireView: View {
     
-    var config = FireConfig(
-        intensity: .medium,
-        lifetime: .long,
-        initialVelocity: .medium,
-        fadeOut: .medium,
-        spreadRadius: .high
-    )
+    private var config: FireConfig
+    
+    public init(config: FireConfig = FireConfig()) {
+        self.config = config
+    }
     
     var body: some View {
         GeometryReader { proxy in

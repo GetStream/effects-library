@@ -9,16 +9,11 @@ import SwiftUI
 
 public struct SnowView: View {
     
-    var config = SnowConfig(
-        backgroundColor: .blue,
-        intensity: .medium,
-        lifetime: .long,
-        initialVelocity: .medium,
-        spreadRadius: .medium,
-        emitterPosition: .top,
-        clipsToBounds: false,
-        fallDirection: .downwards
-    )
+    private var config: SnowConfig
+    
+    public init(config: SnowConfig = SnowConfig()) {
+        self.config = config
+    }
     
     public var body: some View {
         GeometryReader { proxy in
