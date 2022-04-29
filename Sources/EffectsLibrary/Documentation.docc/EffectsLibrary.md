@@ -20,3 +20,4 @@ Text for the overview.
 - ``SnowView``
 - ``FireworksView``
 - ``SmokeView``
+- ``FireView``
