@@ -10,6 +10,6 @@ import SwiftUI
 
 extension UIColor {
     
-    static var fireRed: UIColor = UIColor(red: 78.0 / 255.0, green: 33.0 / 255.0, blue: 6.0 / 255.0, alpha: 1)
+    static public var fireRed: UIColor = UIColor(red: 78.0 / 255.0, green: 33.0 / 255.0, blue: 6.0 / 255.0, alpha: 1)
     
 }

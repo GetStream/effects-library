@@ -19,7 +19,7 @@ import SwiftUI
 ///     - `initialVelocity`: Specifies the initial speed with which fire particles will be emitted from the source. The higher the value the larger the radius of the effects as elements will spread in a larger radius around the source. The type is ``InitialVelocity`` and possible values are `.slow`, `.medium`, and `.fast`. Default value is `.medium`.
 ///     - `fadeOut`: Specifies how fast elements of the effect will fade out (meaning: become transparent). Difference to `lifetime` is that there elements will be removed instantly whereas here there is a fading effect that is more subtle over time. The type is ``FadeOut`` (click to see more details) with the values `.none`, `.slow`, `.medium`, and `.fast`. Default is `.medium`.
 ///     - `spreadRadius`: Defines the angle in which the single elements of the effect are emitted. The type ``SpreadRadius`` (click to see more details) defines 3 values: `.low`, `.medium`, and `.high`. The default is `.high` (leading to a complete circle of particles emitted from the source).
-struct FireConfig: BaseConfig {
+public struct FireConfig: BaseConfig {
     var content: [Content] = [
         .image(UIImage.loadFromBundle(named: .spark), .fireRed, 1)
     ]

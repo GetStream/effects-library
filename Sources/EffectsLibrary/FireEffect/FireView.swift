@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FireView: View {
+public struct FireView: View {
     
     private var config: FireConfig
     
@@ -15,7 +15,7 @@ struct FireView: View {
         self.config = config
     }
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { proxy in
             FireContainerView(proxy: proxy, config: config)
         }
