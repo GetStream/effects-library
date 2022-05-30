@@ -19,12 +19,12 @@ public struct SnowView: View {
         GeometryReader { proxy in
             SnowViewRepresentable(proxy: proxy, config: config)
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct SnowView_Previews: PreviewProvider {
     static var previews: some View {
         SnowView()
-            .edgesIgnoringSafeArea(.all)
     }
 }

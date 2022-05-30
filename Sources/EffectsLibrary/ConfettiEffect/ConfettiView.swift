@@ -19,6 +19,7 @@ public struct ConfettiView: View {
         GeometryReader { proxy in
             ConfettiViewRepresentable(proxy: proxy, config: config)
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

@@ -19,6 +19,7 @@ public struct RainView: View {
         GeometryReader { proxy in
             RainViewRepresentable(proxy: proxy, config: config)
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
