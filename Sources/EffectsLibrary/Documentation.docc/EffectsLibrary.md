@@ -21,3 +21,12 @@ Text for the overview.
 - ``FireworksView``
 - ``SmokeView``
 - ``FireView``
+
+### Configs
+
+- ``ConfettiConfig``
+- ``RainConfig``
+- ``SnowConfig``
+- ``FireworksConfig``
+- ``SmokeConfig``
+- ``FireConfig``

@@ -11,5 +11,7 @@
         @Image(source: "intro", alt: "Example of the confetti effects of the library.")
         
         @TutorialReference(tutorial: "doc:getting-started")
+        
+        @TutorialReference(tutorial: "doc:advanced-tutorial")
     }
 }

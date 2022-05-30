@@ -11,7 +11,6 @@ import EffectsLibrary
 struct ContentView: View {
     var body: some View {
         ConfettiView()
-            .padding()
     }
 }
 

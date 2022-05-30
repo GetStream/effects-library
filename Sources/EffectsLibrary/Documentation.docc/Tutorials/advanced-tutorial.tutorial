@@ -1,0 +1,252 @@
+@Tutorial(time: 20) {
+    @Intro(title: "Advanced customization of effects") {
+        In this tutorial we want to showcase how to customize one of our effects (the ``FireworksView``) to create your own effects out of it.
+        
+        We will start off with the basic view without any customization. Then, we will demonstrate how you can tailor the ``FireworksView`` to your needs by changing the parameters in its configuration (the ``FireworksConfig``). 
+        
+        It will include changing options like `intensity` (of type ``Intensity``), `lifetime` (of type ``Lifetime``), `initialVelocity` (of type ``InitialVelocity``) and more.
+        
+        This tutorial requires you to have an Xcode project with the `EffectsLibrary` as a dependency. If you are not sure how to do that, the [](doc:getting-started) tutorial offers exactly this help.
+    }
+    
+    @Section(title: "Introduction to the Fireworks effect") {
+        @ContentAndMedia {
+            Let's dive into the new project.
+        }
+        
+        @Steps {
+            
+            @Step {
+                First thing we do is open up the `ContentView.swift` file.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-01-01.swift) 
+            }
+            
+            @Step {
+                We need to import the `EffectsLibrary` at the top of the file.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-01-02.swift)
+            }
+            
+            @Step {
+                Next, we replace the template `Text` view with the ``FireworksView``. 
+                
+                We're also adding a `.edgesIgnoringSafeArea(.all)` modifier to make it a full-screen effect. 
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-01-03.swift)
+            }
+            
+            @Step {
+                We can run the preview to see how it looks.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-01-03.swift) {
+                    @Image(source: "01-advanced-tutorial-01-04-preview-gif", alt: "Preview of the fireworks effect."
+                }
+            }
+        }
+    }
+                           
+    @Section(title: "Using the config file for customization") {
+        @ContentAndMedia {
+            We layed out the basic ``FireworksView`` without any customization. Now, let's dive into exactly that.
+            
+            What we need for that is the ``FireworksConfig`` struct. Every effect has its own configuration file. But they all share some common options, which we discuss in the article @Link.
+            
+            Let's get started.
+        }                
+        
+        @Steps {
+            
+            @Step {
+                We start off by opening up `ContentView.swift` again.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-02-01.swift)
+            }
+            
+            @Step {
+                The `FireworksView` takes a parameter called `config` of type `FireworksConfig`. We can initialize it like this to have the default parameters be applied.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-02-02.swift)
+            }
+            
+            @Step {
+                You can find an article about all configuration options as well so we'll just focus on the usage here with quick comparisons what the respective configuration option is actually doing. 
+                
+                Take a look at the preview of the basic effect without any customization. 
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-02-02.swift) {
+                    @Image(source: "01-advanced-tutorial-01-04-preview-gif", alt: "Preview of the fireworks effect without customization")
+                }
+            }
+            
+            @Step {
+                The first value we will set on the configuration object is the `intensity`. The beauty of open-source is that we can have a look at the implementation of the parameter. It is of type `Intensity` and has three cases: `low`, `medium` (the default), and `high`.
+                
+                The documentation describes what it does.
+                
+                @Code(name: "Intensity.swift", file: Intensity.swift)
+            }
+            
+            @Step {
+                We can now set the intensity in our `ContentView`. Add the code to the initialization of the `FireworksConfig`. The default value is always `.medium` so let's change it to `.low`.
+                
+                The preview shows that the intensity of the effect has decreased.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-02-04.swift) {
+                    @Image(source: "02-advanced-tutorial-02-04-preview-gif", alt: "Preview of the fireworks effect with the intensity set to low.")
+                }
+            }
+            
+            @Step {
+                We can compare the results when we change the value to be `.high` now.
+                
+                Again, the preview shows quite a difference in the effect's intensity.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-02-05.swift) {
+                    @Image(source: "02-advanced-tutorial-02-05-preview-gif", alt: "Preview of the fireworks effect with the intensity set to high.")
+                }
+            }
+            
+            @Step {
+                The next value we have a look at is the `lifetime` parameter. We can again take a look at its type, which is an enum called `Lifetime`.
+                
+                This time it has the three cases `short`, `medium` (the default), and `long`.
+                
+                @Code(name: "Lifetime.swift", file: Lifetime.swift)
+            }
+            
+            @Step {
+                Again, let's set the value in our config file in the `ContentView`. This time we'll go with the `.short` option first and see how that will change the effect.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-02-06.swift) {
+                    @Image(source: "02-advanced-tutorial-02-06-preview-gif", alt: "Preview of the fireworks effect with the lifetime set to short.")
+                }
+            }
+            
+            @Step {
+                Changing the lifetime value to `.long` will have a direct impact on the way the effect looks.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-02-07.swift) {
+                    @Image(source: "02-advanced-tutorial-02-07-preview-gif", alt: "Preview of the fireworks effect with the lifetime set to long.")
+                }
+            }
+            
+            @Step {
+                The last parameter we want to look at is the `initialVelocity`. You can open up the `InitialVelocity.swift` file on your own to check out what it does and what parameters it has.
+                
+                We'll set it now to the `.slow` option and see what happens.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-02-08.swift) {
+                    @Image(source: "02-advanced-tutorial-02-08-preview-gif", alt: "Preview of the fireworks effect with the initial velocity set to slow.")
+                }
+            }
+            
+            @Step {
+                And again, we want to directly compare that to setting the `initialVelocity` to `.fast` and see the result.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-02-09.swift) {
+                    @Image(source: "02-advanced-tutorial-02-09-preview-gif", alt: "Preview of the fireworks effect with the initial velocity set to fast.")
+                }
+            }
+            
+            @Step {
+                There are more options that we have not yet talked about. Specifically there are the following: `backgroundColor` (defaults to `.clear`), `fadeOut` (defaults to `.medium`), and `spreadRadius` (defaults to `.high`).
+            }
+            
+            @Step {
+                Feel free to play around with those. Here is an example of a configuration option that changes up the effect quite a bit.
+                
+                That was fun already, but the real power of the library comes in the next section, so you should - objectively - keep reading.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-02-10.swift) {
+                    @Image(source: "02-advanced-tutorial-02-10-preview-gif", alt: "Preview of the fireworks effect with (almost) all parameters set.")
+                }
+            }
+        }
+    }
+        
+    @Section(title: "Changing the content of the effect") {
+        @ContentAndMedia {
+            We learned how to configure the effect with different parameters in the `FireworksConfig`. One of the most powerful things have been omitted, though.
+            
+            That is the `content` parameter. It allows us to change the particles of the effect with a lot of freedom. We can use on of three different types and combine them in whatever way we want:
+            
+            - `.shape`
+            - `.emoji`
+            - `.image`
+            
+            We'll go over examples for all of them so let's get started.
+        }                
+        
+        @Steps {
+            
+            @Step {
+                We start off by opening up `ContentView.swift` again. This is what we had at the end of the last tutorial.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-03-01.swift)
+            }
+            
+            @Step {
+                First, create a more subtle effect so that we can focus on our `content` changes.
+                
+                This looks like a good start.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-03-02.swift) {
+                    @Image(source: "02-advanced-tutorial-03-02-preview-gif", alt: "Preview of the fireworks effect with current parameters set.")
+                }
+            }
+            
+            @Step {
+                The first content we will add is the `.shape`. It takes different forms, concretely `.triangle`, `.square`, or `.circle`. The second parameter is a color and the third one is a scaling factor that can be used to scale each `content` element individually.
+                
+                Note: the `content` parameter is an array so we're able to add as many elements as we like to it.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-03-03.swift)
+            }
+            
+            @Step {
+                Looking at the result we can see that each fireworks explosion now is in the shape of one of the given parameters. That is of course individual to this effect, you should play around with others to see how they behave. It's a lot of fun!
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-03-03.swift) {
+                    @Image(source: "02-advanced-tutorial-03-03-preview-gif", alt: "Preview of the fireworks effect with custom shapes set.")
+                }
+            }
+            
+            @Step {
+                One cool aspect is that we can omit the color value as a parameter and just hand it `nil` to use the default setting that is set for this effect. Notice how the circle shape is as colorful as the original effect.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-03-04.swift) {
+                    @Image(source: "02-advanced-tutorial-03-04-preview-gif", alt: "Preview of the fireworks effect with custom shapes set where one uses the color set to nil.")
+                }
+            }
+            
+            @Step {
+                The `.emoji` content parameter works in a very similar way. The only thing is that there is no color that can be attached to it. Otherwise it works the exact same way.
+                
+                Note the difference, that the size parameter makes in the effect.
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-03-05.swift) {
+                    @Image(source: "02-advanced-tutorial-03-05-preview-gif", alt: "Preview of the fireworks effect with custom shapes set as emojis.")
+                }
+            }
+            
+            @Step {
+                The last shape is the `.image`. This takes an `UIImage` as well as a color and a scaling parameter. The scaling is necessary as image have different sizes and we can directly control the sizing of images that may have different shapes.
+                
+                Note: For this to build on your machine, you need to have an image in the Assets folder called "stream-logo".
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-03-06.swift) {
+                    @Image(source: "02-advanced-tutorial-03-06-preview-gif", alt: "Preview of the fireworks effect with custom shapes set as an image.")
+                }
+            }
+            
+            @Step {
+                We learned a lot of different ways to set shapes. So for the grand finale...let's combine all of those into a mega effect. Will we use that anywhere else? No. Is it fun? Oh yes!
+                
+                @Code(name: "ContentView.swift", file: 02-advanced-tutorial-03-07.swift) {
+                    @Image(source: "02-advanced-tutorial-03-07-preview-gif", alt: "Preview of the fireworks effect gone crazy.")
+                }
+            }
+        }
+    }
+}
