@@ -17,10 +17,7 @@ let package = Package(
         .target(
             name: "EffectsLibrary",
             dependencies: [],
-            resources: [.process("Resources")]),
-        .testTarget(
-            name: "EffectsLibraryTests",
-            dependencies: ["EffectsLibrary"]),
+            resources: [.process("Resources")])
     ]
 )
 

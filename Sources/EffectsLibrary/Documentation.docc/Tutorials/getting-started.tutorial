@@ -4,22 +4,21 @@
         
         There is no prerequisite other than Xcode (which involves having a Mac in some form, of course). Grab yourself your favorite drink (coffee, for me) and get ready to see how easy it is to bring amazing effects into your app with very little effort.
         
-        @Image(source: "intro", alt: "Example of the confetti effect inside a view falling down.")
+        @Image(source: "effectsIntro", alt: "Background image")
     }
     
     @Section(title: "Integrating the library into a new project") {
         @ContentAndMedia {
             First, we will create a new Xcode project and then we will integrate the *Effects Library* by using the Swift Package Manager.
             
-            I hope you are ready, just in case: here is an image of a Capybara. 
+            I hope you are ready, just in case: here is an image of fireworks effect. 
             
             Does that have anything to do with the tutorial? No.
             
-            Is it worth including because they are majestic and insanely cute animals? Yes.
+            Is it worth including because it looks very cool? Yes.
             
-            ![An image of a majestic and wonderful Capybara walking by a lake.](capybara.jpg)
+            @Image(source: "fireworksEffect", alt: "An example fireworks effect")
             
-            Photo by <a href="https://unsplash.com/@tioni?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tioni Oliv</a> on <a href="https://unsplash.com/s/photos/capybara?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
         }
             
         @Steps {
@@ -44,9 +43,9 @@
             }
             
             @Step {
-                In the text field at the top right (see red rectangle) we need to paste the link to the Github repo of the **Effects Library**. You can either [https://github.com/DaemonLoki/effects-library](go there and copy it) or just select it and copy it directly here:
+                In the text field at the top right (see red rectangle) we need to paste the link to the Github repo of the **Effects Library**. You can either go to the repo or copy the link directly from here:
                 
-                https://github.com/DaemonLoki/effects-library
+                https://github.com/GetStream/effects-library
                 
                 @Image(source: "add-link-to-package", alt: "Pasting the link into the text field.")
             }
