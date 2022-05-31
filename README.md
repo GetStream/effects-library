@@ -2,7 +2,7 @@
 
 The Effects Library allows developers to create sophisticated and realistic particle systems such as snow, fire, rain, confetti, fireworks, and smoke with no or minimal effort.
 
-![All effects previews ](https://github.com/GetStream/effects-library/blob/main/Previews/allEffects.gif)
+![All effects previews ](https://github.com/GetStream/effects-library/blob/main/Sources/EffectsLibrary/Documentation.docc/Resources/getting-started/allEffects.gif)
 
 It has premade effects ready to be used for your compositions. You can also build your own effects using nearly any image, shape, text view, and flexible customization options.
 
