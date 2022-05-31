@@ -58,14 +58,43 @@ As the name suggests this allows you to set a background color on your effects. 
 
 ### intensity
 
+The `intensity` parameter is one of the configuration options where you see the most impact. It will make the effect more lively when set to the `.high` option and way more subtle when set to `.low`. The default is always to have it at `.medium`.
+
+The cool thing is that internally it has different manifestations of how values will change. Some effects use `SpriteKit` where it will have an effect on some of the values being set there. Other effects make use of `CAEmitterLayer` where the changes for the `intensity` will have very different changes of parameters.
+
+That is the goal that we aimed for with this library. The level of abstraction that you can change parameters depending on understandable functionality and don't need to know how that works internally.
+
 ### lifetime
+
+Each particle in a system has a certain duration where it will be existant - the `lifetime`. With this parameter you can specify how long that will be. As this determines how long they will be on screen it will also have an effect on how _dragged out_ the effect will be. Shorter lifetime will lead to shorter bursts of effects.
+
+The possible values are:
+
+- `.short`
+- `.medium` (default)
+- `.long`
 
 ### initialVelocity
 
+For each of the effects the particles are emitted from a source. Depending on this `initialVelocity` particles will be emitted faster or slower. The higher the initial velocity is, the more widespread the effect will be. As some effects are directly affected by gravity that will also impact the trajectory they will take. E.g. for rain it will detemine whether the rain is more spread around the available space or more centered toward the middle.
+
+You can select between `.short`, `.medium` (default), and `.fast`.
+
 ### fadeOut
+
+The `fadeOut` is related to the `lifetime` value but contrary to that one it will not directly remove particles. It will slowly fade them out by reducing the opacity over time. Here you have 4 options:
+
+* `.none` 
+* `.slow` 
+* `.medium` (default)
+* `.fast`
+
+We want to emphasize again: the goal was that you don't need to know anything about the underlying implementation but you can just play around with some sensible defaults that we have set.
 
 ### spreadRadius
 
-### <!--@START_MENU_TOKEN@-->Group<!--@END_MENU_TOKEN@-->
+The `spreadRadius` specifies the radius in which particles are emitted from the source. That can be in a full circle or only in a certain angle. This parameter is pretty specific to the effects but all of them have the options of `.low`, `.medium`, and `.high`.
 
-- <!--@START_MENU_TOKEN@-->``Symbol``<!--@END_MENU_TOKEN@-->
+## Summary
+
+Hopefully, this gave you a nice introduction into the configuration options of all the effects. Some effects even have some more specialized paramters and we'll get to them in a follow article, that will be be coming soon. Stay tuned.

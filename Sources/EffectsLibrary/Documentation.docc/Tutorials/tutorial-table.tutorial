@@ -1,5 +1,5 @@
 @Tutorials(name: "Effects Library") {
-    @Intro(title: "What is the Effects Library") {
+    @Intro(title: "EffectsLibrary tutorials") {
         This is a library for creating full screen effects in SwiftUI in an easy, seamless way. The package is available on Swift Package Manager (SPM) and fully open-source.
         
         @Image(source: "intro", alt: "Example of the confetti effects of the library.")
