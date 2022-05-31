@@ -2,6 +2,8 @@
 
 The Effects Library allows developers to create sophisticated and realistic particle systems such as snow, fire, rain, confetti, fireworks, and smoke with no or minimal effort.
 
+![All effects previews ]([https://github.com/GetStream/swiftui-spring-animations/blob/main/Misc/chains.gif](https://github.com/GetStream/effects-library/blob/main/Previews/allEffects.gif))
+
 It has premade effects ready to be used for your compositions. You can also build your own effects using nearly any image, shape, text view, and flexible customization options.
 
 It is completely open-source with well-designed documentation and an interactive walkthrough tutorial to assist you to get started.
