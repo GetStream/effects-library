@@ -10,11 +10,11 @@ You can check the project’s sample app, contribute to its companion GitHub rep
 
 ## Useful resources
 
-We have created a [beautiful site with documentation](TODO) to help you get started with the library. There are some basic articles out there (with more and more being added over time).
+We have created a [beautiful site with documentation](https://getstream.github.io/effects-library/documentation/effectslibrary/) to help you get started with the library. There are some basic articles out there (with more and more being added over time).
 
-There is also a number of tutorials we have created to make getting started with the library as seamless as possible. There is an [entry-level tutorial](TODO) where you will learn how to add the library to your app and take your first steps by adding the first effects.
+There is also a [number of tutorials](https://getstream.github.io/effects-library/tutorials/tutorial-table) we have created to make getting started with the library as seamless as possible. There is an [entry-level tutorial](https://getstream.github.io/effects-library/tutorials/effectslibrary/getting-started) where you will learn how to add the library to your app and take your first steps by adding the first effects.
 
-There is also an [advanced tutorial](TODO) that showcases how to configure an effect to your needs. This will include fine-tuning with setting different configurations. Also, it will showcase completely changing up the effect and adding custom branding, all with very few lines of code.
+There is also an [advanced tutorial](https://getstream.github.io/effects-library/tutorials/effectslibrary/advanced-tutorial) that showcases how to configure an effect to your needs. This will include fine-tuning with setting different configurations. Also, it will showcase completely changing up the effect and adding custom branding, all with very few lines of code.
 
 The fun part is, that we've fully used [Apple's wonderful DocC](https://developer.apple.com/documentation/docc) documentation style throughout the package. That means that all functionality is heavily documented and is nicely integrated in Xcode.
 
