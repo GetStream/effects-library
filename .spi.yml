@@ -1,7 +1,5 @@
 version: 1
 builder:
   configs:
-  - platform: macos
-    scheme: EffectsLibrary
-  - platform: macos-spm
+  - platform: ios
     documentation_targets: [EffectsLibrary]
