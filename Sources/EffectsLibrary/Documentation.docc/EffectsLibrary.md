@@ -4,7 +4,7 @@ This is the documentation for the `EffectsLibrary`.
 
 ## Overview
 
-Text for the overview.
+Here we have a list of evergrowing topics and tutorials that is aimed to give you the best experience possible with this package.
 
 ## Topics
 

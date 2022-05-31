@@ -17,7 +17,6 @@ let package = Package(
         .target(
             name: "EffectsLibrary",
             dependencies: [],
-            exclude: ["Documentation.docc/"],
             resources: [.process("Resources")])
     ]
 )
