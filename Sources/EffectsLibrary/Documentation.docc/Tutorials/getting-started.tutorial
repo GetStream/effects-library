@@ -51,7 +51,7 @@
             }
             
             @Step {
-                For the **Dependency rule** (see red rectangle) we can select **Branch** and use the `main` branch. This will get you the latest version of the package. Once we will switch to Releases it makes sense to go with the latest stable release.
+                For the **Dependency rule** (see red rectangle) we can select **Up to Next Major Version** and enter the starting version `1.0.0`. This will get you the latest version of the package. At least the ones that don't introduce breaking changes.
                 
                 Click **Add Package** now. 
                 

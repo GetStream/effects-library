@@ -8,7 +8,75 @@ It is completely open-source with well-designed documentation and an interactive
 
 You can check the project’s sample app, contribute to its companion GitHub repository or let us know your feedback.
 
-## Useful resources
+## 🚀 Getting started
+
+### Installation
+
+The package is distributed via Swift Package Manager. We have a [very thorough tutorial with clear instructions for the installation](https://getstream.github.io/effects-library/tutorials/effectslibrary/getting-started). You can also follow these steps:
+
+1. In Xcode go to _File -> Add Packages_
+2. In the top right of the opening window (where it says _Search or Enter Package URL_) paste the link to the repository: `https://github.com/GetStream/effects-library`
+3. For the _Dependency Rule_ select _Up to Next Major Version_ and enter _1.0.0_ in the following field
+4. Hit _Add Package_
+5. Confirm _Add Package_ in the upcoming window as well
+
+### Set up your first effect
+
+When the setup is done it is very straightforward to add your first effect. They are all SwiftUI `View`s so you can just drop them into your layouts and get going. Here are all the `View`s:
+
+- `FireworksView`
+- `ConfettiView`
+- `SnowView`
+- `RainView`
+- `SmokeView`
+- `FireView`
+
+An example for a `View` that uses one of the effects:
+
+```Swift
+import SwiftUI
+import EffectsLibrary
+
+struct ContentView: View {
+    var body: some View {
+        FireworksView()
+    }
+}
+```
+
+### Customize an effect with its config
+
+Effects can be customized further with their config files. Here's an example of that:
+
+```Swift
+struct ContentView: View {
+    var body: some View {
+        FireworksView(
+            config: FireworksConfig(
+                content: [
+                    .shape(.triangle, .blue, 10.0),
+                    .shape(.square, .green, 10.0),
+                    .shape(.circle, .red, 10.0),
+                    .emoji("🚀", 10.0),
+                    .emoji("💥", 3.0),
+                    .image(UIImage(named: "stream-logo")!, nil, 0.8)
+                ],
+                intensity: .high,
+                lifetime: .long,
+                initialVelocity: .fast,
+                fadeOut: .slow
+            )
+        )
+    }
+}
+```
+
+There are way more examples that can be found in the tutorials we provide for you:
+
+- [Getting Started](https://getstream.github.io/effects-library/tutorials/effectslibrary/getting-started)
+- [Advanced Tutorial](https://getstream.github.io/effects-library/tutorials/effectslibrary/advanced-tutorial)
+
+## 🧵 Useful resources
 
 We have created a [beautiful site with documentation](https://getstream.github.io/effects-library/documentation/effectslibrary/) to help you get started with the library. There are some basic articles out there (with more and more being added over time).
 
@@ -24,7 +92,7 @@ Also, we have created a sample app so that you can see how to leverage the libra
 
 Note: we're always happy to see contribution from the community, so feel free to play around, open issues and PRs and have fun with it.
 
-## About us
+## 🤩 About us
 
 This package was created by [Stefan Blos](https://twitter.com/stefanjblos) and [Amos Gyamfi](https://twitter.com/amos_gyamfi) at [Stream](https://getstream.io). In case you want to contribute or just reach out to us you can do that on [Github](https://github.com/GetStream/effects-library) (with an issue, PR or similar) or Twitter.
 
