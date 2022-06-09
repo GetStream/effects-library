@@ -1,8 +1,10 @@
+![Introducing the SwiftUI Effects Library Twitter-2400x1350px](https://user-images.githubusercontent.com/12433593/171354044-ac368994-f9dc-4047-9e87-cd367f078fb6.png)
+
 # EffectsLibrary
 
 The Effects Library allows developers to create sophisticated and realistic particle systems such as snow, fire, rain, confetti, fireworks, and smoke with no or minimal effort.
 
-![All effects previews ](https://github.com/GetStream/effects-library/blob/main/Sources/EffectsLibrary/Documentation.docc/Resources/getting-started/allEffects.gif)
+![All effects previews ](https://github.com/GetStream/effects-library/blob/main/docs/images/allEffectsNoBg.png)
 
 It has premade effects ready to be used for your compositions. You can also build your own effects using nearly any image, shape, text view, and flexible customization options.
 
