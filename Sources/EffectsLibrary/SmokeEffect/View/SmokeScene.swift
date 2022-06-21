@@ -63,7 +63,7 @@ class SmokeScene: SKScene {
             
             node.particleSpeed = config.velocityValue
             node.particleSpeedRange = 40
-            node.particleColor = .black
+            node.particleColor = contentElement.color ?? .black
             node.particleColorBlendFactor = 1
             
             node.particleRotation = 0
