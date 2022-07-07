@@ -12,6 +12,7 @@ It is completely open-source with well-designed documentation and an interactive
 
 You can check the project’s sample app, contribute to its companion GitHub repository or let us know your feedback.
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FGetStream%2Feffects-library%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/GetStream/effects-library) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FGetStream%2Feffects-library%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/GetStream/effects-library)
 ## 🚀 Getting started
 
 ### Installation
