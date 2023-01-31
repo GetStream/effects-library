@@ -15,7 +15,11 @@ class FireworksScene: SKScene {
         self.config = config
         super.init(size: size)
         
+        #if os(iOS) || os(watchOS)
         backgroundColor = UIColor(config.backgroundColor)
+        #elseif os(OSX)
+        backgroundColor = SKColor(config.backgroundColor)
+        #endif
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -83,7 +87,11 @@ class FireworksScene: SKScene {
         node.particleScale = 0.15 * content.scale
         
         // Particle Color
+        #if os(iOS) || os(watchOS)
         node.particleColor = UIColor(red: 171 / 255.0, green: 80 / 255.0, blue: 21 / 255.0, alpha: 1.0)
+        #elseif os(OSX)
+        node.particleColor = SKColor(red: 171 / 255.0, green: 80 / 255.0, blue: 21 / 255.0, alpha: 1.0)
+        #endif
         node.particleBlendMode = .add
         node.particleColorBlendFactor = 0.8
         node.particleColorBlendFactorRange = 1

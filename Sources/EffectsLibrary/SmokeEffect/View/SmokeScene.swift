@@ -15,7 +15,11 @@ class SmokeScene: SKScene {
         self.config = config
         super.init(size: size)
         
+        #if os(iOS) || os(watchOS)
         backgroundColor = UIColor(config.backgroundColor)
+        #elseif os(OSX)
+        backgroundColor = SKColor(config.backgroundColor)
+        #endif
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,7 +67,11 @@ class SmokeScene: SKScene {
             
             node.particleSpeed = config.velocityValue
             node.particleSpeedRange = 40
-            node.particleColor = contentElement.color ?? .black
+            #if os(iOS) || os(watchOS)
+            node.particleColor = UIColor(contentElement.color ?? .black)
+            #elseif os(OSX)
+            node.particleColor = NSColor(contentElement.color ?? .black)
+            #endif
             node.particleColorBlendFactor = 1
             
             node.particleRotation = 0
