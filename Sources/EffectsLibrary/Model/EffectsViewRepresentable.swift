@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if os(iOS) || os(watchOS)
 protocol EffectsViewRepresentable: UIViewRepresentable {
     
     associatedtype Config: EmitterLayerConfig
@@ -33,6 +34,34 @@ extension EffectsViewRepresentable {
         // Todo
     }
 }
+#elseif os(OSX)
+protocol EffectsViewRepresentable: NSViewRepresentable {
+    
+    associatedtype Config: EmitterLayerConfig
+    
+    var proxy: GeometryProxy { get }
+    var config: Config { get }
+    
+    var emitterPositionY: CGFloat { get }
+    var viewRenderMode: CAEmitterLayerRenderMode { get }
+    
+    func createView() -> NSView
+    func createBaseView() -> NSView
+    func createBaseLayer() -> CAEmitterLayer
+    
+    func createCell(with content: Content) -> CAEmitterCell
+}
+
+extension EffectsViewRepresentable {
+    func makeNSView(context: Context) -> some NSView {
+        return createView()
+    }
+    
+    func updateNSView(_ uiView: NSViewType, context: Context) {
+        // Todo
+    }
+}
+#endif
 
 extension EffectsViewRepresentable {
     
@@ -54,7 +83,13 @@ extension EffectsViewRepresentable {
 
 extension EffectsViewRepresentable {
     
-    func createView() -> UIView {
+    #if os(iOS) || os(watchOS)
+    typealias MyView = UIView
+    #elseif os(OSX)
+    typealias MyView = NSView
+    #endif
+    
+    func createView() -> MyView {
         let baseView = createBaseView()
         let baseLayer = createBaseLayer()
         
@@ -63,15 +98,20 @@ extension EffectsViewRepresentable {
         }
         
         baseLayer.emitterCells = cells
-        baseView.layer.addSublayer(baseLayer)
+        baseView.layer?.addSublayer(baseLayer)
         
         return baseView
     }
     
-    func createBaseView() -> UIView {
-        let baseView = UIView()
-        baseView.backgroundColor = UIColor(config.backgroundColor)
+    func createBaseView() -> MyView {
+        let baseView = MyView()
+        #if os(iOS) || os(watchOS)
+        baseView.backgroundColor = config.backgroundColor
         baseView.clipsToBounds = config.clipsToBounds
+        #elseif os(OSX)
+        baseView.layer?.backgroundColor = config.backgroundColor.cgColor
+        baseView.layer?.masksToBounds = config.clipsToBounds
+        #endif
         
         return baseView
     }
@@ -81,7 +121,7 @@ extension EffectsViewRepresentable {
         containerLayer.name = "Container"
         containerLayer.bounds = CGRect(x: 0, y: 0, width: proxy.size.width, height: proxy.size.height)
         containerLayer.anchorPoint = CGPoint(x: 0, y: 0)
-        containerLayer.backgroundColor = UIColor(config.backgroundColor).cgColor
+        containerLayer.backgroundColor = config.backgroundColor.cgColor
         containerLayer.emitterPosition = CGPoint(x: proxy.size.width / 2, y: emitterPositionY)
         containerLayer.fillMode = .forwards
         containerLayer.renderMode = viewRenderMode
