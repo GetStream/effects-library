@@ -10,20 +10,21 @@ import SwiftUI
 /// Content is the building blocks of what the effects are constituted of.
 /// These can be configured when creating the effects.
 public enum Content {
+    
     public enum Shape {
         case circle
         case triangle
         case square
         case custom(CGPath)
     }
-
-    case shape(Shape, UIColor?, CGFloat = 1)
-    case image(UIImage, UIColor?, CGFloat = 1)
+    
+    case shape(Shape, Color?, CGFloat = 1)
+    case image(MyImage, Color?, CGFloat = 1)
     case emoji(Character, CGFloat = 1)
 }
 
 extension Content {
-    var color: UIColor? {
+    var color: Color? {
         switch self {
         case let .image(_, color?, _),
             let .shape(_, color?, _):
@@ -33,7 +34,7 @@ extension Content {
         }
     }
     
-    var image: UIImage {
+    @MainActor var image: MyImage {
         switch self {
         case let .image(image, _, _):
             return image
@@ -76,27 +77,51 @@ extension Content.Shape {
             return path
         }
     }
-    
-    func image(with color: UIColor) -> UIImage {
+#if os(iOS) || os(watchOS)
+    func image(with color: Color) -> MyImage {
         let rect = CGRect(origin: .zero, size: CGSize(width: 12.0, height: 12.0))
+
         return UIGraphicsImageRenderer(size: rect.size).image { context in
-            context.cgContext.setFillColor(color.cgColor)
+            if let unwrappedCGColor = color.cgColor {
+                context.cgContext.setFillColor(unwrappedCGColor)
+            }
             context.cgContext.addPath(path(in: rect))
             context.cgContext.fillPath()
         }
     }
+#elseif os(OSX)
+    @MainActor func image(with color: Color) -> MyImage {
+        let viewToRender = Path { context in
+            context.addPath(Path(CGPath(rect: CGRect(origin: .zero, size: CGSize(width: 12.0, height: 12.0)), transform: nil)))
+            context.fill()
+        }
+
+        let renderer = ImageRenderer(content: viewToRender)
+        return renderer.nsImage!
+    }
+#endif
 }
 
 extension String {
-    func image(with font: UIFont = UIFont.systemFont(ofSize: 16.0)) -> UIImage {
+#if os(iOS) || os(watchOS)
+    func image(with font: UIFont = UIFont.systemFont(ofSize: 16.0)) -> MyImage {
         let string = NSString(string: "\(self)")
         let attributes: [NSAttributedString.Key: Any] = [
             .font: font
         ]
         let size = string.size(withAttributes: attributes)
-        
+
         return UIGraphicsImageRenderer(size: size).image { _ in
             string.draw(at: .zero, withAttributes: attributes)
         }
     }
+#elseif os(OSX)
+    @MainActor func image(with font: NSFont = .systemFont(ofSize: 16.0)) -> MyImage {
+        let textView = Text("\(self)")
+            .font(Font(font))
+
+        let renderer = ImageRenderer(content: textView)
+        return renderer.nsImage!
+    }
+#endif
 }

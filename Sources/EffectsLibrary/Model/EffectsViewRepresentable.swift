@@ -98,7 +98,12 @@ extension EffectsViewRepresentable {
         }
         
         baseLayer.emitterCells = cells
+        #if os(iOS) || os(watchOS)
+        baseView.layer.addSublayer(baseLayer)
+        #elseif os(OSX)
         baseView.layer?.addSublayer(baseLayer)
+        #endif
+        
         
         return baseView
     }
@@ -106,7 +111,7 @@ extension EffectsViewRepresentable {
     func createBaseView() -> MyView {
         let baseView = MyView()
         #if os(iOS) || os(watchOS)
-        baseView.backgroundColor = config.backgroundColor
+        baseView.backgroundColor = UIColor(config.backgroundColor)
         baseView.clipsToBounds = config.clipsToBounds
         #elseif os(OSX)
         baseView.layer?.backgroundColor = config.backgroundColor.cgColor

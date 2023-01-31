@@ -1,11 +1,11 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.7
 
 import PackageDescription
 
 let package = Package(
     name: "EffectsLibrary",
     platforms: [
-        .iOS(.v14)
+        .iOS(.v14), .macOS(.v13)
     ],
     products: [
         .library(

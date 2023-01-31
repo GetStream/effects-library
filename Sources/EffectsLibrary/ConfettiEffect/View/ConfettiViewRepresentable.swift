@@ -16,7 +16,7 @@ struct ConfettiViewRepresentable: EffectsViewRepresentable {
         return .unordered
     }
     
-    func createCell(with content: Content) -> CAEmitterCell {
+    @MainActor func createCell(with content: Content) -> CAEmitterCell {
         let cell = CAEmitterCell()
         
         cell.contentsScale = 0.1 / content.scale

@@ -12,7 +12,7 @@ struct RainViewRepresentable: EffectsViewRepresentable {
     var proxy: GeometryProxy
     var config: RainConfig
     
-    func createCell(with content: Content) -> CAEmitterCell {
+    @MainActor func createCell(with content: Content) -> CAEmitterCell {
         let cell = CAEmitterCell()
         
         cell.contentsScale = 1 / content.scale

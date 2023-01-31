@@ -12,7 +12,7 @@ struct SnowViewRepresentable: EffectsViewRepresentable {
     var proxy: GeometryProxy
     var config: SnowConfig
 
-    func createCell(with content: Content) -> CAEmitterCell {
+    @MainActor func createCell(with content: Content) -> CAEmitterCell {
         let cell = CAEmitterCell()
         
         cell.contents = content.image.cgImage
