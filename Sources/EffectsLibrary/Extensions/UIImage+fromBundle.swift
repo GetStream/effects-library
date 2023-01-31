@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if os(iOS) || os(watchOS)
 extension UIImage {
     
     public static func loadFromBundle(named name: String) -> UIImage {
@@ -14,3 +15,11 @@ extension UIImage {
     }
     
 }
+#elseif os(OSX)
+extension NSImage {
+    
+    public static func loadFromBundle(named name: String) -> NSImage {
+        return NSImage(named: name)!
+    }
+}
+#endif

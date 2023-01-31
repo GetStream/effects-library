@@ -21,7 +21,7 @@ import SwiftUI
 ///     - `spreadRadius`: Defines the angle in which the single elements of the effect are emitted. The type ``SpreadRadius`` (click to see more details) defines 3 values: `.low`, `.medium`, and `.high`. The default is `.high` (leading to a complete circle of particles emitted from the source).
 public struct FireConfig: BaseConfig {
     var content: [Content] = [
-        .image(UIImage.loadFromBundle(named: .spark), .fireRed, 1)
+        .image(MyImage.loadFromBundle(named: .spark), .fireRed, 1)
     ]
     var backgroundColor: Color = .clear
     var intensity: Intensity = .medium
@@ -36,7 +36,7 @@ public struct FireConfig: BaseConfig {
     /// We need to define custom public initializers as they're internal by default.
     public init(
         content: [Content] = [
-            .image(UIImage.loadFromBundle(named: .spark), .fireRed, 0.5)
+            .image(MyImage.loadFromBundle(named: .spark), .fireRed, 0.5)
         ],
         backgroundColor: Color = .clear,
         intensity: Intensity = .medium,

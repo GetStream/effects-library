@@ -24,9 +24,10 @@ import SwiftUI
 ///     - clipsToBounds: specifies whether the effect is constrained to the `SnowView` itself or can leak around. Default is `false` (effect leaks outside).
 ///     - fallDirection: an enum value of type `FallDirection`. There are two options for now, being `.upwards` (particles are moving up the screen from the source they are emitted) and `.downwards` (particles are falling downwards from the origin of the source). Default is `.downwards`.
 public struct SnowConfig: EmitterLayerConfig {
+    
     // base config parameters
     var content: [Content] = [
-        .image(UIImage.loadFromBundle(named: .snow), .white)
+        .image(MyImage.loadFromBundle(named: .snow), .white)
     ]
     var backgroundColor: Color = .clear
     var intensity: Intensity = .medium
@@ -46,7 +47,7 @@ public struct SnowConfig: EmitterLayerConfig {
     /// We need to define custom public initializers as they're internal by default.
     public init(
         content: [Content] = [
-            .image(UIImage.loadFromBundle(named: .snow), .white)
+            .image(MyImage.loadFromBundle(named: .snow), .white)
         ],
         backgroundColor: Color = .clear,
         intensity: Intensity = .medium,
