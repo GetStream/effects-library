@@ -17,9 +17,11 @@ extension UIImage {
 }
 #elseif os(OSX)
 extension NSImage {
-    
     public static func loadFromBundle(named name: String) -> NSImage {
-        return NSImage(named: name)!
+        if let path = Bundle.module.path(forResource: name, ofType: "png"), let image = NSImage(contentsOfFile: path) {
+            return image
+        }
+        return NSImage(contentsOfFile: Bundle.module.path(forResource: "spark", ofType: "png")!)!
     }
 }
 #endif
