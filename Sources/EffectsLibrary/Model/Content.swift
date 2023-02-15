@@ -39,7 +39,7 @@ extension Content {
         case let .image(image, _, _):
             return image
         case let .shape(shape, color, _):
-            return shape.image(with: color ?? .white)
+            return shape.image(with: color)
         case let .emoji(character, _):
             return "\(character)".image()
         }
@@ -77,33 +77,41 @@ extension Content.Shape {
             return path
         }
     }
-#if os(iOS) || os(watchOS)
-    func image(with color: Color) -> MyImage {
+    
+    #if os(iOS) || os(watchOS)
+    func image(with color: Color?) -> MyImage {
         let rect = CGRect(origin: .zero, size: CGSize(width: 12.0, height: 12.0))
 
         return UIGraphicsImageRenderer(size: rect.size).image { context in
-            if let unwrappedCGColor = color.cgColor {
-                context.cgContext.setFillColor(unwrappedCGColor)
+            if let unwrappedColor = color {
+                context.cgContext.setFillColor(UIColor(unwrappedColor).cgColor)
             }
             context.cgContext.addPath(path(in: rect))
             context.cgContext.fillPath()
         }
     }
-#elseif os(OSX)
-    @MainActor func image(with color: Color) -> MyImage {
+    #elseif os(OSX)
+    @MainActor func image(with color: Color?) -> MyImage {
+        let macRenderWidth: CGFloat = 50
         let viewToRender = Path { context in
-            context.addPath(Path(CGPath(rect: CGRect(origin: .zero, size: CGSize(width: 12.0, height: 12.0)), transform: nil)))
+            let rect = CGRect(origin: .zero, size: CGSize(width: macRenderWidth, height: macRenderWidth))
+            let path = Path(path(in: rect))
+            
+            context.addPath(path)
             context.fill()
         }
-
-        let renderer = ImageRenderer(content: viewToRender)
+        
+        let renderer = ImageRenderer(content: viewToRender
+            .foregroundColor(color ?? .black)
+            .frame(width: macRenderWidth, height: macRenderWidth)
+        )
         return renderer.nsImage!
     }
-#endif
+    #endif
 }
 
 extension String {
-#if os(iOS) || os(watchOS)
+    #if os(iOS) || os(watchOS)
     func image(with font: UIFont = UIFont.systemFont(ofSize: 16.0)) -> MyImage {
         let string = NSString(string: "\(self)")
         let attributes: [NSAttributedString.Key: Any] = [
@@ -115,7 +123,7 @@ extension String {
             string.draw(at: .zero, withAttributes: attributes)
         }
     }
-#elseif os(OSX)
+    #elseif os(OSX)
     @MainActor func image(with font: NSFont = .systemFont(ofSize: 16.0)) -> MyImage {
         let textView = Text("\(self)")
             .font(Font(font))
@@ -123,5 +131,5 @@ extension String {
         let renderer = ImageRenderer(content: textView)
         return renderer.nsImage!
     }
-#endif
+    #endif
 }

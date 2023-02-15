@@ -17,6 +17,8 @@ extension UIImage {
 }
 #elseif os(OSX)
 extension NSImage {
+    /// A helpful blog post that displayed how to correctly load images on macOS in Swift Packages:
+    /// https://www.enekoalonso.com/articles/displaying-images-in-swiftui-views-from-swift-package-resources
     public static func loadFromBundle(named name: String) -> NSImage {
         if let path = Bundle.module.path(forResource: name, ofType: "png"), let image = NSImage(contentsOfFile: path) {
             return image
